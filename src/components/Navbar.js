@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container">
         <a className="navbar-brand" href="#">
           <img className="logo" src={logo} alt="logo" />
-          Navbar
+          AZ
         </a>
         <button
           className="navbar-toggler"
