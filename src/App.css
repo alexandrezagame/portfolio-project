@@ -10,6 +10,7 @@
   --primary-hover-red: #f33501;
   --primary-light-grey: #f4f4f4;
   --primary-black: #000000;
+  --primary-blue: #2727e6;
 }
 
 body {
@@ -73,15 +74,17 @@ nav ul li {
 .header-wraper {
   position: relative;
   background: url(background.jpg) no-repeat;
+  opacity: 0.8;
   background-size: cover;
   background-position: center;
   height: 90vh;
+  z-index: 1;
 }
 
 .main-info {
   display: flex;
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
   top: 0;
   left: 0;
   right: 0;
@@ -93,15 +96,16 @@ nav ul li {
 }
 
 .main-info h1 {
-  color: var(--primary-orange);
+  color: var(--primary-black);
   text-transform: uppercase;
+  z-index: 3;
 }
 
 /* TYPED TEXT */
 
 .typed-text {
   font-size: 2rem;
-  color: var(--primary-orange);
+  color: var(--primary-white);
 }
 
 @media(max-width: 768px) {
@@ -115,21 +119,23 @@ nav ul li {
 
 /* HEADER BUTTON */
 
-.btn-main-offer {
-  border: 1px solid var(--primary-red);
+/* .btn-main-offer {
+  border: 1px solid var(--primary-blue);
   text-transform: uppercase;
   border-radius: 0;
   padding: 0.625rem 0.75rem 0.75rem 0.75rem;
   color: var(--primary-white);
   margin: 2rem;
+  z-index: 4 !important;
 }
 
 .btn-main-offer:hover {
   text-decoration: none;
-  background-color: var(--primary-hover-red);
+  background-color: var(--primary-blue);
   color: var(--primary-white);
   transition: .3s ease-in-out;
-}
+  z-index: 4;
+} */
 
 /* PARTICLES JS */
 
@@ -137,7 +143,7 @@ nav ul li {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  z-index: 1;
+  z-index: 2;
 }
 
 @media(max-width: 768px) {
@@ -163,7 +169,7 @@ nav ul li {
 }
 
 .about-heading {
-  color: var(--primary-orange);
+  color: var(--primary-blue);
   text-transform: uppercase;
 }
 
@@ -182,7 +188,7 @@ nav ul li {
 }
 
 .services h1 {
-  color: var(--primary-dark);
+  color: var(--primary-blue);
   text-transform: uppercase;
 }
 
@@ -215,7 +221,7 @@ nav ul li {
 
 .services .box:hover {
   background: var(--primary-orange);
-  border-bottom: 0.325rem solid var(--primary-dark);
+  border-bottom: 0.325rem solid var(--primary-blue);
 }
 
 .services .box:hover .icon {
@@ -248,7 +254,7 @@ nav ul li {
 
 .experience h1 {
   text-transform: uppercase;
-  color: var(--primary-orange);
+  color: var(--primary-blue);
 }
 
 .experience-wraper:before {
@@ -333,7 +339,7 @@ nav ul li {
 }
 
 .portfolio-wraper h1 {
-  color: var(--primary-orange);
+  color: var(--primary-blue);
 }
 
 .portfolio-image {

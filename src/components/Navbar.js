@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Alex.jpg";
+import logo from "../logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,7 +9,6 @@ const Navbar = () => {
       <div className="container">
         <a className="navbar-brand" href="#">
           <img className="logo" src={logo} alt="logo" />
-          AZ
         </a>
         <button
           className="navbar-toggler"
