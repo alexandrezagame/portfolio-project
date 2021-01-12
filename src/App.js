@@ -8,6 +8,7 @@ import Services from "./components/Services";
 import Timeline from "./components/Timeline";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
       <Timeline />
       <Portfolio />
       <Contact />
+      <Footer />
     </>
   );
 }

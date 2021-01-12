@@ -205,7 +205,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="portfolio-wraper">
+    <div  id="portfolio" className="portfolio-wraper">
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">

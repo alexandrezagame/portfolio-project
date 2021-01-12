@@ -2,7 +2,7 @@ import React from "react";
 
 const Timeline = () => {
   return (
-    <div className="experience">
+    <div id="timeline" className="experience">
       <div className="d-flex justify-content-center my-5">
         <h1>Experience</h1>
       </div>
