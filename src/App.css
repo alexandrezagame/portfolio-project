@@ -131,14 +131,15 @@ nav ul li {
 
 /* HEADER BUTTON */
 
-/* .btn-main-offer {
-  border: 1px solid var(--primary-blue);
+.btn-main-offer {
+  border: none;
   text-transform: uppercase;
   border-radius: 0;
   padding: 0.625rem 0.75rem 0.75rem 0.75rem;
   color: var(--primary-white);
-  margin: 2rem;
-  z-index: 4 !important;
+  /* margin: 2rem; */
+  /* z-index: 4 !important; */
+  background: var(--primary-dark-grey);
 }
 
 .btn-main-offer:hover {
@@ -146,8 +147,8 @@ nav ul li {
   background-color: var(--primary-blue);
   color: var(--primary-white);
   transition: .3s ease-in-out;
-  z-index: 4;
-} */
+  /* z-index: 4; */
+} 
 
 /* PARTICLES JS */
 
@@ -457,5 +458,92 @@ nav ul li {
   }
   .portfolio-image-popupbox {
     width: 30%;
+  }
+}
+
+/* CONTACT FORM COMPONENT */
+
+.contact {
+  background: var(--primary-white);
+  padding: 3rem 0;
+}
+
+.contact h1 {
+  color: var(--primary-blue);
+  padding: 1.3rem;
+  text-transform: uppercase;
+}
+
+.contact p {
+  color: var(--primary-grey);
+  font-size: 1.2rem;
+}
+
+.contact input, .contact textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: none;
+  resize: none;
+  border: 0;
+  border-bottom: 0.125rem solid var(--primary-dark-grey);
+  border-radius: 0;
+  color: var(--primary-grey);
+  outline: 0 !important;
+  box-shadow: none !important;
+  top: 0;
+  /* margin-bottom: 1rem; */
+  padding-left: 0 !important;
+}
+
+.contact .container {
+  padding: 4rem 0;
+}
+
+.contact input:focus, .contact textarea:focus {
+  background: transparent;
+  color: var(--primary-orange);
+  border-bottom: 0.125rem solid var(--primary-dark-grey);
+}
+
+.contact textarea {
+  height: 6.22rem !important;
+}
+
+.contact-btn {
+  width: 100%;
+}
+
+.line {
+  position: relative;
+  width: 0;
+  top: -1.07rem;
+  height: 0.125rem;
+  background: var(--primary-blue);
+  display: inline-block;
+}
+
+input:focus+.line, textarea:focus+.line {
+  width: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+input .form-control {
+  margin: -0.3rem 0;
+}
+
+textarea .form-control {
+  margin: -0.3rem 0;
+}
+
+
+@media(max-width: 768px) {
+  .contact {
+    overflow-x: hidden;
+  }
+  .contact .container {
+    padding: 0 1rem;
+  }
+  .contact p {
+    padding: 0 0.5rem;
   }
 }
