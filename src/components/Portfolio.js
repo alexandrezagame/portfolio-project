@@ -30,7 +30,7 @@ const Portfolio = () => {
         <p>
           Some of our features include a live chat, a virtual fika widget, a
           Google-connected calendar, a department page, a pong-game, admin
-          panel, latest hires, an an original design.
+          panel, latest hires, and a drag&drop customization of the dashboard.
         </p>
         <b>Github:</b>{" "}
         <a

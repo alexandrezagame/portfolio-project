@@ -27,7 +27,7 @@ const Header = () => {
           className="parallax"
           style={{
             filter: `blur(4px)`,
-            transform: `translateY(${offset * 0.5}px)`
+            transform: `translateY(${offset * 0.2}px)`
           }}
         />
 
