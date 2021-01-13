@@ -45,15 +45,6 @@ const Portfolio = () => {
     PopupboxManager.open({ content });
   };
 
-  const popupboxConfigAhoy = {
-    titleBar: {
-      enable: true,
-      text: "Ahoy project: DaaS",
-    },
-    fadeIn: true,
-    fadeInSpeed: 500,
-  };
-
   const openPopupboxCrypto = () => {
     const content = (
       <>
@@ -87,15 +78,6 @@ const Portfolio = () => {
       </>
     );
     PopupboxManager.open({ content });
-  };
-
-  const popupboxConfigCrypto = {
-    titleBar: {
-      enable: true,
-      text: "Digital Destiny: crypto app",
-    },
-    fadeIn: true,
-    fadeInSpeed: 500,
   };
 
   const openPopupboxPrimetime = () => {
@@ -139,15 +121,6 @@ const Portfolio = () => {
       </>
     );
     PopupboxManager.open({ content });
-  };
-
-  const popupboxConfigPrimetime = {
-    titleBar: {
-      enable: true,
-      text: "Primetime: french event company",
-    },
-    fadeIn: true,
-    fadeInSpeed: 500,
   };
 
   const openPopupboxFleapit = () => {
@@ -196,31 +169,31 @@ const Portfolio = () => {
     PopupboxManager.open({ content });
   };
 
-  const popupboxConfigFleapit = {
-    titleBar: {
-      enable: true,
-      text: "Fleapit: non-monetary exchange platform",
-    },
+  const popupboxConfig = {
     fadeIn: true,
     fadeInSpeed: 500,
   };
 
   return (
-    <div  id="portfolio" className="portfolio-wraper">
+    <div id="portfolio" className="portfolio-wraper">
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">
+
           <div className="portfolio-image-box" onClick={openPopupboxAhoy}>
             <img className="portfolio-image" src={ahoy} alt="ahoy app" />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+          <h3>Ahoy: digital onboarding</h3>
           </div>
-          {/* - */}
+
           <div className="portfolio-image-box" onClick={openPopupboxCrypto}>
             <img className="portfolio-image" src={crypto} alt="crypto app" />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+            <h3>Digital Destiny: crypto currency tracker</h3>
           </div>
+
           <div className="portfolio-image-box" onClick={openPopupboxPrimetime}>
             <img
               className="portfolio-image"
@@ -229,7 +202,9 @@ const Portfolio = () => {
             />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+            <h3>Primetime: Paris based event company</h3>
           </div>
+
           <div className="portfolio-image-box" onClick={openPopupboxFleapit}>
             <img
               className="portfolio-image"
@@ -238,13 +213,12 @@ const Portfolio = () => {
             />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+            <h3>Fleapit: non-monetary exchange platform</h3>
           </div>
+
         </div>
       </div>
-      <PopupboxContainer {...popupboxConfigAhoy} />
-      <PopupboxContainer {...popupboxConfigCrypto} />
-      <PopupboxContainer {...popupboxConfigPrimetime} />
-      <PopupboxContainer {...popupboxConfigFleapit} />
+      <PopupboxContainer {...popupboxConfig} />
     </div>
   );
 };

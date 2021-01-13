@@ -30,7 +30,7 @@
   width: 45rem;
   height: 22.6875rem;
   top: 0;
-  border: 1px solid var(--primary-red);
+  /* border: 1px solid var(--primary-red); */
   cursor: pointer;
 }
 
