@@ -36,11 +36,13 @@
   margin-bottom: 1.875rem;
   background: var(--primary-white);
   transition: 0.3s ease-in-out;
+  box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.79);
+  border-radius: 3px;
 }
 
 .services .box:hover {
   background: var(--primary-orange);
-  border-bottom: 0.325rem solid var(--primary-blue);
+  border-bottom: 0.325rem solid var(--primary-white);
 }
 
 .services .box:hover .icon {

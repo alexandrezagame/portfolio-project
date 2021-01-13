@@ -1,9 +1,10 @@
 /* NAVBAR COMPONENT */
 
-.logo {
-  width: 6.25rem;
+/* .logo {
+  width: 3.5rem;
   border-radius: 50%;
-}
+  height: 3.5rem;
+} */
 
 nav {
   z-index: 2;
@@ -12,7 +13,13 @@ nav {
 .navbar-brand {
   max-width: 17.25rem;
   padding: 0 !important;
-  height: 6rem !important;
+  height: 4rem !important;
+}
+
+.navbar-brand h2 {
+  font-family: 'Hachi Maru Pop', cursive;
+  font-size: 2.5rem;
+  color: var(--primary-blue);
 }
 
 @media (max-width: 768px) {
@@ -37,7 +44,7 @@ nav ul li {
 .navbar-nav > li > a {
   margin-right: 0.75rem;
   margin-left: 0.75rem;
-  color: var(--primary-white) !important;
+  color: var(--primary-dark) !important;
   border-top: 0.1875rem solid var(--primary-dark);
 }
 
@@ -48,4 +55,9 @@ nav ul li {
 
 .navbar-nav > li > a:hover {
   border-top: 0.1875rem solid var(--primary-orange);
+}
+
+.navbar-toggler {
+  color: var(--primary-dark);
+  background: var(--primary-dark);
 }

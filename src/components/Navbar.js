@@ -8,10 +8,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div className="container">
         <a className="navbar-brand" href="#">
-          <img className="logo" src={logo} alt="logo" />
+          {/* <img className="logo" src={logo} alt="logo" /> */}
+          <h2>AZ</h2>
         </a>
         <button
           className="navbar-toggler"
@@ -33,27 +34,27 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="about" offset={-110} className="nav-link" href="#">
+              <Link smooth={true} to="about" offset={-70} className="nav-link" href="#">
                 About me
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="services" offset={-110} className="nav-link" href="#">
+              <Link smooth={true} to="services" offset={-60} className="nav-link" href="#">
                 Services
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="timeline" offset={-110} className="nav-link" href="#">
+              <Link smooth={true} to="timeline" offset={-50} className="nav-link" href="#">
                 Timeline
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="portfolio" offset={-110} className="nav-link" href="#">
+              <Link smooth={true} to="portfolio" offset={-40} className="nav-link" href="#">
                 Portfolio
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="contact" offset={-110} className="nav-link" href="#">
+              <Link smooth={true} to="contact" offset={-40} className="nav-link" href="#">
                 Contact
               </Link>
             </li>
