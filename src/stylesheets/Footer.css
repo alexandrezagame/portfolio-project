@@ -1,0 +1,29 @@
+/* FOOTER COMPONENT */
+
+.footer {
+  background: var(--primary-grey);
+  color: var(--primary-white);
+  padding: 3rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--primary-dark-grey);
+  margin: 0 2rem;
+}
+
+/* .footer .row a {
+  display: flex;
+  align-items: center;
+} */
+
+.footer a:hover {
+  text-decoration: none;
+  color: var(--primary-orange);
+  cursor: pointer;
+}
+
+
+.footer p {
+  margin-bottom: 0;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import "../stylesheets/Header.css";
 import Typed from "react-typed";
 
 const Header = () => {

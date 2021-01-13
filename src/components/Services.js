@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/Services.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFigma } from "@fortawesome/free-brands-svg-icons";
 import { faTasks, faFileCode } from "@fortawesome/free-solid-svg-icons";

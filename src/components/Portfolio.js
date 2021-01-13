@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import "../stylesheets/Projects.css";
 import ahoy from "../images/ahoy.png";
 import crypto from "../images/crypto-app.png";
 import primetime from "../images/primetime.png";

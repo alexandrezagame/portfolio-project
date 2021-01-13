@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/About.css";
 import author from "../Alex.jpg";
 
 const AboutMe = () => {
