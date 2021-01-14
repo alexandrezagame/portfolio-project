@@ -19,6 +19,32 @@
   text-transform: uppercase;
 }
 
+/* CARDS */
+
+.cards-row {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.card {
+  margin: 0.5rem 1rem;
+  min-width: 16.875rem;
+  border-radius: 3px;
+  background: var(--primary-light-grey);
+  /* box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.5); */
+}
+
+.card-title {
+  color: var(--primary-blue);
+  font-weight: 900;
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+}
+
 @media (max-width: 468px) {
   .profile-img {
     width: 10rem;

@@ -2,7 +2,7 @@ import React from "react";
 import "../stylesheets/Services.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFigma } from "@fortawesome/free-brands-svg-icons";
-import { faTasks, faFileCode } from "@fortawesome/free-solid-svg-icons";
+import { faTasks, faCode } from "@fortawesome/free-solid-svg-icons";
 
 const Services = () => {
   return (
@@ -26,7 +26,7 @@ const Services = () => {
           <div className="col-md-4 col-sm-12">
             <div className="box">
               <div className="circle">
-                <FontAwesomeIcon className="icon" icon={faFileCode} size="2x" />
+                <FontAwesomeIcon className="icon" icon={faCode} size="2x" />
               </div>
               <h3>Web Development</h3>
               <p>
