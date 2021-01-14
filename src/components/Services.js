@@ -17,8 +17,10 @@ const Services = () => {
               </div>
               <h3>Web Design</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                ultrices sed ex a efficitur. Nam non tristique tellus.
+                Provide wireframing and designing brand visuals aligned with the
+                customer’s needs, product(s), and the business goals with an
+                appreciation of the user journey as it applies to marketing—from
+                problem-solving through to detailed visual design solutions.
               </p>
             </div>
           </div>
@@ -30,8 +32,10 @@ const Services = () => {
               </div>
               <h3>Web Development</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                ultrices sed ex a efficitur. Nam non tristique tellus.
+                Help you design, upgrade and implement internal and external
+                initiatives with an analytical and problem-solving approach.
+                Provide recommendations for designs, solutions, and/or
+                improvements and develop compelling and usable deliveries.
               </p>
             </div>
           </div>
@@ -43,8 +47,10 @@ const Services = () => {
               </div>
               <h3>Project Management</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                ultrices sed ex a efficitur. Nam non tristique tellus.
+                Provide direction regarding company initiatives, priorities and
+                changes (i.e. structure and processes, new technology,
+                benchmark, policies, etc.) ensuring all project activities are
+                in alignment with organization strategic goals.
               </p>
             </div>
           </div>
