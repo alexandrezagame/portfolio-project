@@ -184,14 +184,14 @@ const Portfolio = () => {
             <img className="portfolio-image" src={ahoy} alt="ahoy app" />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          <h3>Ahoy: digital onboarding</h3>
+          <h3><b>Ahoy:</b> digital onboarding</h3>
           </div>
 
           <div className="portfolio-image-box" onClick={openPopupboxCrypto}>
             <img className="portfolio-image" src={crypto} alt="crypto app" />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-            <h3>Digital Destiny: crypto currency tracker</h3>
+            <h3><b>Digital Destiny:</b> crypto currency tracker</h3>
           </div>
 
           <div className="portfolio-image-box" onClick={openPopupboxPrimetime}>
@@ -202,7 +202,7 @@ const Portfolio = () => {
             />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-            <h3>Primetime: Paris based event company</h3>
+            <h3><b>Primetime:</b> Paris based event company</h3>
           </div>
 
           <div className="portfolio-image-box" onClick={openPopupboxFleapit}>
@@ -213,7 +213,7 @@ const Portfolio = () => {
             />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-            <h3>Fleapit: non-monetary exchange platform</h3>
+            <h3><b>Fleapit:</b> non-monetary exchange platform</h3>
           </div>
 
         </div>
