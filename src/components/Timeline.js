@@ -13,16 +13,10 @@ const Timeline = () => {
           <div className="timeline-content">
             <h3>2021</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              interdum congue urna in laoreet. Nunc vel dapibus est, in
-              ullamcorper lorem. Quisque porttitor placerat tincidunt.
-              Pellentesque non ipsum eu ipsum fringilla feugiat. Suspendisse
-              ornare, lacus a accumsan mollis, lectus purus fermentum dui, et
-              dapibus nunc est vel ante. Nulla a nisl hendrerit, finibus dolor
-              non, cursus nisi. Mauris lacus odio, scelerisque a iaculis rutrum,
-              fermentum interdum nulla. In porttitor nunc a mauris molestie, id
-              faucibus magna lacinia. Aenean ut sapien orci. Nunc vel
-              pellentesque velit, vel posuere velit.
+              <b>Your company name here:</b> Currently working as a Consultant web
+              developer for Salt open to Software
+              Development Opportunities. <br/>Will your company be next on my
+              timeline...? (Front End/Full Stack)
             </p>
           </div>
         </div>
@@ -32,16 +26,19 @@ const Timeline = () => {
           <div className="timeline-content">
             <h3>2020</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              interdum congue urna in laoreet. Nunc vel dapibus est, in
-              ullamcorper lorem. Quisque porttitor placerat tincidunt.
-              Pellentesque non ipsum eu ipsum fringilla feugiat. Suspendisse
-              ornare, lacus a accumsan mollis, lectus purus fermentum dui, et
-              dapibus nunc est vel ante. Nulla a nisl hendrerit, finibus dolor
-              non, cursus nisi. Mauris lacus odio, scelerisque a iaculis rutrum,
-              fermentum interdum nulla. In porttitor nunc a mauris molestie, id
-              faucibus magna lacinia. Aenean ut sapien orci. Nunc vel
-              pellentesque velit, vel posuere velit.
+              <b>Salt:</b> In September of 2020, I was selected as one out of
+              1500 applicants to join Salt's Full Stack Web Development Bootcamp
+              alongside 30 other students. Salt stack includes: JavaScript,
+              HTML5, CSS3, React & Redux, Node, Express, Git, REST, Docker,
+              MongoDB, PostgreSQL, async programming, SPA, UX, Docker, Test
+              Driven Development (TDD), REST APIs and agile work methods
+              (SCRUM).
+            </p>
+            <p>
+              <b>Le Wagon:</b> 9-week intensive coding bootcamp learning HTML,
+              CSS, Bootstrap, JavaScript ES2015, SQL, git, GitHub, Heroku and
+              Ruby on Rails. Designed, implemented and shipped to production a
+              clone of AirBnB and a Rails prototype.
             </p>
           </div>
         </div>
@@ -51,16 +48,13 @@ const Timeline = () => {
           <div className="timeline-content">
             <h3>2019</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              interdum congue urna in laoreet. Nunc vel dapibus est, in
-              ullamcorper lorem. Quisque porttitor placerat tincidunt.
-              Pellentesque non ipsum eu ipsum fringilla feugiat. Suspendisse
-              ornare, lacus a accumsan mollis, lectus purus fermentum dui, et
-              dapibus nunc est vel ante. Nulla a nisl hendrerit, finibus dolor
-              non, cursus nisi. Mauris lacus odio, scelerisque a iaculis rutrum,
-              fermentum interdum nulla. In porttitor nunc a mauris molestie, id
-              faucibus magna lacinia. Aenean ut sapien orci. Nunc vel
-              pellentesque velit, vel posuere velit.
+              <b>Teamtailor:</b> As a Business Developer for the French speaking
+              markets I prospected relentlessly to build my pipeline and build
+              strong relationships with clients. Managed and closed high-level
+              business in a fast-moving sales environment.
+              <br />
+              <br />
+              Teamtailor was 13th on Deloitte's Technology fast50 Sweden (2019)
             </p>
           </div>
         </div>
@@ -68,18 +62,17 @@ const Timeline = () => {
         <div className="timeline-block timeline-block-right">
           <div className="marker"></div>
           <div className="timeline-content">
-            <h3>2018</h3>
+            <h3>2017-2018</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              interdum congue urna in laoreet. Nunc vel dapibus est, in
-              ullamcorper lorem. Quisque porttitor placerat tincidunt.
-              Pellentesque non ipsum eu ipsum fringilla feugiat. Suspendisse
-              ornare, lacus a accumsan mollis, lectus purus fermentum dui, et
-              dapibus nunc est vel ante. Nulla a nisl hendrerit, finibus dolor
-              non, cursus nisi. Mauris lacus odio, scelerisque a iaculis rutrum,
-              fermentum interdum nulla. In porttitor nunc a mauris molestie, id
-              faucibus magna lacinia. Aenean ut sapien orci. Nunc vel
-              pellentesque velit, vel posuere velit.
+              <b>Potentialpark:</b> As a Key Account Manager I built an
+              expansive network, developed, and maintained relationships with
+              Fortune 500 companies across the US, UK, and Switzerland while
+              hunting for new business within my territories to increase sales
+              pipeline and drive brand awareness.
+              <br />
+              <br />
+              Co-organising and speaking at the 2018 & 2019 US conferences with
+              high-profile Fortune 500 employer brand attendees.
             </p>
           </div>
         </div>
@@ -87,18 +80,13 @@ const Timeline = () => {
         <div className="timeline-block timeline-block-left">
           <div className="marker"></div>
           <div className="timeline-content">
-            <h3>2014-2017</h3>
+            <h3>2014-2016</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              interdum congue urna in laoreet. Nunc vel dapibus est, in
-              ullamcorper lorem. Quisque porttitor placerat tincidunt.
-              Pellentesque non ipsum eu ipsum fringilla feugiat. Suspendisse
-              ornare, lacus a accumsan mollis, lectus purus fermentum dui, et
-              dapibus nunc est vel ante. Nulla a nisl hendrerit, finibus dolor
-              non, cursus nisi. Mauris lacus odio, scelerisque a iaculis rutrum,
-              fermentum interdum nulla. In porttitor nunc a mauris molestie, id
-              faucibus magna lacinia. Aenean ut sapien orci. Nunc vel
-              pellentesque velit, vel posuere velit.
+              <b>EGG Events:</b> I directed events from concept through
+              execution with up to €2M budgets for pharmaceutical and FMCG
+              clients. I also managed on-site teams during events, sales
+              process, from initial client pitch through all phases of
+              negotiation to final closing and contract delivery.
             </p>
           </div>
         </div>

@@ -33,13 +33,22 @@ const Portfolio = () => {
           Google-connected calendar, a department page, a pong-game, admin
           panel, latest hires, and a drag&drop customization of the dashboard.
         </p>
-        <b>Github:</b>{" "}
-        <a
-          className="hyper-link"
+        <button
+          className="btn-main-offer btn-projects"
           onClick={() => window.open("https://github.com/alexandrezagame/AHOY")}
         >
-          Ahoy project
-        </a>
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() =>
+            window.open(
+              "https://vimeo.com/user131245363/review/500493855/368651e495"
+            )
+          }
+        >
+          Demo
+        </button>
       </>
     );
     PopupboxManager.open({ content });
@@ -64,17 +73,16 @@ const Portfolio = () => {
         </p>
         <h3>Technology</h3>
         <p>DT uses React, Express and Axios along with the CoinGecko API</p>
-        <b>Github:</b>{" "}
-        <a
-          className="hyper-link"
+        <button
+          className="btn-main-offer btn-projects"
           onClick={() =>
             window.open(
               "https://github.com/alexandrezagame/hackday-stock-market-app"
             )
           }
         >
-          Digital Destiny
-        </a>
+          Github
+        </button>
       </>
     );
     PopupboxManager.open({ content });
@@ -101,23 +109,20 @@ const Portfolio = () => {
           Primetime uses Ruby on Rails, JS, Heroku, postgresql, and Cloudinary
           to store images.
         </p>
-        <b>Github:</b>{" "}
-        <a
-          className="hyper-link"
+        <button
+          className="btn-main-offer btn-projects"
           onClick={() =>
             window.open("https://github.com/FAR-Fullstack/PrimeTime")
           }
         >
-          Primetime
-        </a>
-        <br></br>
-        <b>Website:</b>{" "}
-        <a
-          className="hyper-link"
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
           onClick={() => window.open("http://www.primetimefr.com/")}
         >
-          Primetime
-        </a>
+          Website
+        </button>
       </>
     );
     PopupboxManager.open({ content });
@@ -147,23 +152,20 @@ const Portfolio = () => {
           Primetime uses Ruby on Rails, JS, Heroku, postgresql, and Cloudinary
           to store images.
         </p>
-        <b>Github:</b>{" "}
-        <a
-          className="hyper-link"
+        <button
+          className="btn-main-offer btn-projects"
           onClick={() =>
             window.open("https://github.com/alexandrezagame/fleapit")
           }
         >
-          Fleapit
-        </a>
-        <br></br>
-        <b>Website:</b>{" "}
-        <a
-          className="hyper-link"
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
           onClick={() => window.open("http://www.fleapit.net")}
         >
-          Fleapit
-        </a>
+          Website
+        </button>
       </>
     );
     PopupboxManager.open({ content });
@@ -179,22 +181,29 @@ const Portfolio = () => {
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">
-
           <div className="portfolio-image-box" onClick={openPopupboxAhoy}>
+            <h3>
+              <b>Ahoy:</b> digital onboarding
+            </h3>
+
             <img className="portfolio-image" src={ahoy} alt="ahoy app" />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          <h3><b>Ahoy:</b> digital onboarding</h3>
           </div>
 
           <div className="portfolio-image-box" onClick={openPopupboxCrypto}>
+            <h3>
+              <b>Digital Destiny:</b> crypto currency tracker
+            </h3>
             <img className="portfolio-image" src={crypto} alt="crypto app" />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-            <h3><b>Digital Destiny:</b> crypto currency tracker</h3>
           </div>
 
           <div className="portfolio-image-box" onClick={openPopupboxPrimetime}>
+            <h3>
+              <b>Primetime:</b> Paris based event company
+            </h3>
             <img
               className="portfolio-image"
               src={primetime}
@@ -202,10 +211,12 @@ const Portfolio = () => {
             />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-            <h3><b>Primetime:</b> Paris based event company</h3>
           </div>
 
           <div className="portfolio-image-box" onClick={openPopupboxFleapit}>
+            <h3>
+              <b>Fleapit:</b> non-monetary exchange platform
+            </h3>
             <img
               className="portfolio-image"
               src={fleapit}
@@ -213,9 +224,7 @@ const Portfolio = () => {
             />
             <div className="overflow"></div>
             <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-            <h3><b>Fleapit:</b> non-monetary exchange platform</h3>
           </div>
-
         </div>
       </div>
       <PopupboxContainer {...popupboxConfig} />

@@ -66,6 +66,10 @@
   font-weight: 900;
 }
 
+.timeline-content b {
+  color: var(--primary-blue)
+}
+
 /* .timeline-block-left h3 {
   text-align: right;
 } */
