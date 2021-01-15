@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../stylesheets/Projects.css";
-import ahoy from "../images/ahoy.png";
-import crypto from "../images/crypto-app.png";
+import ahoy from "../images/ahoy.gif";
+import crypto from "../images/dt.gif";
 import primetime from "../images/primetime.png";
-import fleapit from "../images/fleapit.png";
+import fleapit from "../images/fleapit.gif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 import { PopupboxManager, PopupboxContainer } from "react-popupbox";
@@ -149,7 +149,7 @@ const Portfolio = () => {
         </p>
         <h3>Technology</h3>
         <p>
-          Primetime uses Ruby on Rails, JS, Heroku, postgresql, and Cloudinary
+          Fleapit uses Ruby on Rails, JS, Heroku, postgresql, and Cloudinary
           to store images.
         </p>
         <button
