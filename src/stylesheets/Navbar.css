@@ -10,6 +10,10 @@ nav {
   z-index: 2;
 }
 
+.navbar {
+  height: 3.5rem;
+}
+
 .navbar-brand {
   max-width: 17.25rem;
   padding: 0 !important;
