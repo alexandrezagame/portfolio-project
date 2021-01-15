@@ -11,7 +11,7 @@ nav {
 }
 
 .navbar {
-  height: 3.5rem;
+  height: 4rem;
 }
 
 .navbar-brand {
@@ -22,7 +22,7 @@ nav {
 
 .navbar-brand h2 {
   font-family: 'Hachi Maru Pop', cursive;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--primary-blue);
 }
 
