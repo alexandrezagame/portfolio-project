@@ -96,6 +96,20 @@
   transform: translate(-50%);
 }
 
+.popupbox-wrapper {
+  border-radius: 3px;
+  overflow: scroll;
+  max-width: 80%;
+  max-height: 70vh !important;
+  min-width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .9);
+  background-color: white;
+}
+
+.popupbox-content {
+  overflow: scroll !important;
+}
+
 .btn-projects {
   cursor: pointer;
   color: var(--primary-white);
