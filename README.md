@@ -12,7 +12,7 @@ Emailjs
 React Hook Form
 react-scroll
 
-### Deployded on:`
+### Deployded on:
 
 Heroku
 
