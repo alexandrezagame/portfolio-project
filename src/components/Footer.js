@@ -11,27 +11,25 @@ import {
 const Footer = () => {
   return (
     <div className="footer">
-      
-        <div className="footer-icons">
-          <a
-            href="https://www.linkedin.com/in/alexandrezagame/"
-            target="_blank"
-          >
-            <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
-          </a>
+      <div className="footer-icons">
+        <a href="https://www.linkedin.com/in/alexandrezagame/" target="_blank">
+          <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
+        </a>
 
-          <a href="https://github.com/alexandrezagame" target="_blank">
-            <FontAwesomeIcon className="icon" icon={faGithubAlt} size="2x" />
-          </a>
+        <a href="https://github.com/alexandrezagame" target="_blank">
+          <FontAwesomeIcon className="icon" icon={faGithubAlt} size="2x" />
+        </a>
 
-          <a
-            href="https://medium.com/@alexbacelo/from-sales-to-web-development-a-journey-of-learning-4ee2c826df46?source=friends_link&sk=e7aa09d4694d10caf6a3e90a79ccf4cd"
-            target="_blank"
-          >
-            <FontAwesomeIcon className="icon" icon={faMedium} size="2x" />
-          </a>
-        </div>
-      
+        <a
+          href="https://medium.com/@alexbacelo/from-sales-to-web-development-a-journey-of-learning-4ee2c826df46?source=friends_link&sk=e7aa09d4694d10caf6a3e90a79ccf4cd"
+          target="_blank"
+        >
+          <FontAwesomeIcon className="icon" icon={faMedium} size="2x" />
+        </a>
+      </div>
+      <div className="footer-copyright">
+        <p>© 2021 by Alex Zagame</p>
+      </div>
     </div>
   );
 };

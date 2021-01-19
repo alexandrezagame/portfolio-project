@@ -13,7 +13,7 @@
 }
 
 .contact p {
-  color: var(--primary-grey);
+  color: var(--primary-dark-grey);
   font-size: 1.2rem;
 }
 
@@ -26,7 +26,7 @@
   border: 0;
   border-bottom: 0.125rem solid var(--primary-dark-grey);
   border-radius: 0;
-  color: var(--primary-grey);
+  color: var(--primary-blue);
   outline: 0 !important;
   box-shadow: none !important;
   top: 0;
@@ -41,7 +41,7 @@
 .contact input:focus,
 .contact textarea:focus {
   background: transparent;
-  color: var(--primary-orange);
+  color: var(--primary-blue);
   border-bottom: 0.125rem solid var(--primary-dark-grey);
 }
 

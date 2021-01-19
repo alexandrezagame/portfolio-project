@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../stylesheets/Projects.css";
-import ahoy from "../images/ahoy.gif";
-import crypto from "../images/dt.gif";
+import covid from "../images/covid.png";
+import ahoy from "../images/ahoy.png";
+import crypto from "../images/dd.gif";
 import primetime from "../images/primetime.png";
 import fleapit from "../images/fleapit.gif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +12,43 @@ import { PopupboxManager, PopupboxContainer } from "react-popupbox";
 import "react-popupbox/dist/react-popupbox.css";
 
 const Portfolio = () => {
+  const openPopupboxCovid = () => {
+    const content = (
+      <>
+        <img className="portfolio-image-popupbox" src={covid} alt="Covid app" />
+        <h3>Description</h3>
+        <p>
+          Corona Virus is, unfortunately, spreading through the entire world.
+          What can we, as developers, do to make the situation better? We can
+          help to spread awareness by visualizing the data. The data is fetched
+          from the API and we'll create cards displaying the statistics as well
+          as Charts.
+        </p>
+        <h3>Technology</h3>
+        <p>
+          Covid19 uses React, Axios to fetch the api, @Mathdroid-api to track
+          the daily numbers, Chartjs to display the chart and bar, Material UI
+          and Netlify to deploy the application.
+        </p>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() =>
+            window.open("https://github.com/alexandrezagame/covid19")
+          }
+        >
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() => window.open("https://covid19-az.netlify.app/")}
+        >
+          Website
+        </button>
+      </>
+    );
+    PopupboxManager.open({ content });
+  };
+
   const openPopupboxAhoy = () => {
     const content = (
       <>
@@ -41,11 +79,7 @@ const Portfolio = () => {
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() =>
-            window.open(
-              "https://vimeo.com/user131245363/review/500493855/368651e495"
-            )
-          }
+          onClick={() => window.open("https://vimeo.com/502096538")}
         >
           Demo
         </button>
@@ -149,8 +183,8 @@ const Portfolio = () => {
         </p>
         <h3>Technology</h3>
         <p>
-          Fleapit uses Ruby on Rails, JS, Heroku, postgresql, and Cloudinary
-          to store images.
+          Fleapit uses Ruby on Rails, JS, Heroku, postgresql, and Cloudinary to
+          store images.
         </p>
         <button
           className="btn-main-offer btn-projects"
@@ -181,6 +215,20 @@ const Portfolio = () => {
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">
+          <div className="portfolio-image-box" onClick={openPopupboxCovid}>
+            <h3>
+              <b>Covid19:</b> Corona Virus tracker
+            </h3>
+
+            <img
+              className="portfolio-image"
+              src={covid}
+              alt="covid10 tracker app"
+            />
+            <div className="overflow"></div>
+            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+          </div>
+
           <div className="portfolio-image-box" onClick={openPopupboxAhoy}>
             <h3>
               <b>Ahoy:</b> digital onboarding

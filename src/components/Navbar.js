@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../stylesheets/Navbar.css";
-import {Link} from "react-scroll";
+import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,7 +22,7 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <FontAwesomeIcon  icon={faBars} style={{color: "#fff"}}/>
+          <FontAwesomeIcon icon={faBars} style={{ color: "#fff" }} />
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,27 +33,57 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="about" offset={-70} className="nav-link" href="#">
+              <Link
+                smooth={true}
+                to="about"
+                offset={-50}
+                className="nav-link"
+                href="#"
+              >
                 About me
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="services" offset={-60} className="nav-link" href="#">
+              <Link
+                smooth={true}
+                to="services"
+                offset={-60}
+                className="nav-link"
+                href="#"
+              >
                 Services
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="timeline" offset={-50} className="nav-link" href="#">
+              <Link
+                smooth={true}
+                to="timeline"
+                offset={-50}
+                className="nav-link"
+                href="#"
+              >
                 Timeline
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="portfolio" offset={-40} className="nav-link" href="#">
+              <Link
+                smooth={true}
+                to="portfolio"
+                offset={-40}
+                className="nav-link"
+                href="#"
+              >
                 Portfolio
               </Link>
             </li>
             <li className="nav-item">
-              <Link smooth={true} to="contact" offset={-40} className="nav-link" href="#">
+              <Link
+                smooth={true}
+                to="contact"
+                offset={-40}
+                className="nav-link"
+                href="#"
+              >
                 Contact
               </Link>
             </li>
