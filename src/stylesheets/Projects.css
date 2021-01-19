@@ -3,6 +3,7 @@
 .portfolio-wraper {
   background: var(--primary-light-grey);
   padding: 3rem 0;
+  margin: 0 auto !important;
 }
 
 .portfolio-wraper h1 {
@@ -10,9 +11,10 @@
 }
 
 .portfolio-image {
-  width: 45rem;
+  width: 50rem;
   border: 1px solid var(--primary-light-grey);
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   border-radius: 0 0 5px 5px;
   height: 22.6875rem;
 }
@@ -20,10 +22,10 @@
 .portfolio-image-box {
   background: var(--primary-white);
   border-radius: 5px;
-  /* box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.5); */
+  box-shadow: 3px 3px 8px 0px rgba(132, 132, 132, 0.2);
   position: relative;
   margin: 1rem;
-  object-fit: cover;
+  object-fit: cover !important;
 }
 
 .portfolio-image-box h3 {
@@ -60,8 +62,8 @@
   .portfolio-icon {
     position: absolute;
     opacity: 0;
-    margin-left: -15.5rem !important;
-    margin-top: 5em !important;
+    margin-left: -11rem !important;
+    margin-top: 3.5em !important;
     color: var(--primary-orange);
     font-size: 1.5rem;
   }
@@ -75,7 +77,7 @@
 .portfolio-icon {
   position: absolute;
   opacity: 0;
-  margin-left: -23.5rem;
+  margin-left: -25.5rem;
   margin-top: 10rem;
   color: var(--primary-light-grey);
   font-size: 2rem;
@@ -90,7 +92,7 @@
 /* POPUP BOX */
 
 .portfolio-image-popupbox {
-  width: 45rem;
+  width: 50rem;
   padding: 0 0.5rem;
   margin-left: 50%;
   transform: translate(-50%);
