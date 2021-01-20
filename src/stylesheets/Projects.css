@@ -93,9 +93,7 @@
 
 .portfolio-image-popupbox {
   width: 50rem;
-  padding: 0 0.5rem;
-  margin-left: 50%;
-  transform: translate(-50%);
+  object-fit: contain;
 }
 
 .popupbox-wrapper {
