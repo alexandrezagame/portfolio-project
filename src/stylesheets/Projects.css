@@ -92,8 +92,8 @@
 /* POPUP BOX */
 
 .portfolio-image-popupbox {
-  width: 50rem;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
 }
 
 .popupbox-wrapper {
@@ -110,6 +110,7 @@
   .popupbox-content {
     overflow: scroll !important;
     max-width: 50vw;
+    padding: 20px 24px 30px;
   }
 
   .popupbox-content h3 {
