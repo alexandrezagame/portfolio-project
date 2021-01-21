@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../stylesheets/Projects.css";
+import ecommerce from "../images/ecommerce.png";
 import covid from "../images/covid.png";
 import ahoy from "../images/ahoy.png";
 import crypto from "../images/dd.gif";
@@ -12,6 +13,46 @@ import { PopupboxManager, PopupboxContainer } from "react-popupbox";
 import "react-popupbox/dist/react-popupbox.css";
 
 const Portfolio = () => {
+  const openPopupboxCommerce = () => {
+    const content = (
+      <>
+        <img
+          className="portfolio-image-popupbox"
+          src={ecommerce}
+          alt="E Commerce app"
+        />
+        <h3>Description</h3>
+        <p>
+          Shopay is an E-Commerce website built using Commercejs. Commercejs is
+          a fast, powerful, and easy to use JavaScript SDK for building and
+          managing carts, checkouts and receipts using the Chec API. The aim of
+          this project was to set up an e-commerce website that is easy and fast
+          to deploy by using the commercejs dashboard.
+        </p>
+        <h3>Technology</h3>
+        <p>
+          Shopay uses React, CommerceJS, Stripe to handle the payments, Material
+          UI and Netlify to deploy the application.
+        </p>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() =>
+            window.open("https://github.com/alexandrezagame/ecommerce-react")
+          }
+        >
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() => window.open("https://ecommerce-az.netlify.app/")}
+        >
+          Website
+        </button>
+      </>
+    );
+    PopupboxManager.open({ content });
+  };
+
   const openPopupboxCovid = () => {
     const content = (
       <>
@@ -215,6 +256,20 @@ const Portfolio = () => {
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">
+          <div className="portfolio-image-box" onClick={openPopupboxCommerce}>
+            <h3>
+              <b>Shopay:</b> E-Commerce site
+            </h3>
+
+            <img
+              className="portfolio-image"
+              src={ecommerce}
+              alt="E-commerce website"
+            />
+            <div className="overflow"></div>
+            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+          </div>
+
           <div className="portfolio-image-box" onClick={openPopupboxCovid}>
             <h3>
               <b>Covid19:</b> Corona Virus tracker
