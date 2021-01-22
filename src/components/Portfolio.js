@@ -158,6 +158,12 @@ const Portfolio = () => {
         >
           Github
         </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() => window.open("https://digital-destiny.netlify.app/")}
+        >
+          Website
+        </button>
       </>
     );
     PopupboxManager.open({ content });
