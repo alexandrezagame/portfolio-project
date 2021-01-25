@@ -1,18 +1,57 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import "../stylesheets/Projects.css";
-import ecommerce from "../images/ecommerce.png";
-import covid from "../images/covid.png";
-import ahoy from "../images/ahoy.png";
-import crypto from "../images/dd.gif";
-import primetime from "../images/primetime.png";
-import fleapit from "../images/fleapit.gif";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
-import { PopupboxManager, PopupboxContainer } from "react-popupbox";
-import "react-popupbox/dist/react-popupbox.css";
+import React from 'react';
+import '../stylesheets/Projects.css';
+import memories from '../images/memories.png';
+import ecommerce from '../images/ecommerce.png';
+import covid from '../images/covid.png';
+import ahoy from '../images/ahoy.png';
+import crypto from '../images/dd.gif';
+import primetime from '../images/primetime.png';
+import fleapit from '../images/fleapit.gif';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
+import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
+import 'react-popupbox/dist/react-popupbox.css';
 
 const Portfolio = () => {
+  const openPopupboxMemories = () => {
+    const content = (
+      <>
+        <img
+          className="portfolio-image-popupbox"
+          src={memories}
+          alt="Share memories app"
+        />
+        <h3>Description</h3>
+        <p>
+          The App is called "Memories" and it is a simple social media MERN
+          application that allows users to post interesting events that happened
+          in their lives.
+        </p>
+        <h3>Technology</h3>
+        <p>
+          I am using React, Node.js, Express & MongoDBto build a Full Stack MERN
+          Project.
+        </p>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() =>
+            window.open('https://github.com/alexandrezagame/memories-app-crud')
+          }
+        >
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() => window.open('https://memories-az.netlify.app/')}
+        >
+          Website
+        </button>
+      </>
+    );
+    PopupboxManager.open({ content });
+  };
+
   const openPopupboxCommerce = () => {
     const content = (
       <>
@@ -37,14 +76,14 @@ const Portfolio = () => {
         <button
           className="btn-main-offer btn-projects"
           onClick={() =>
-            window.open("https://github.com/alexandrezagame/ecommerce-react")
+            window.open('https://github.com/alexandrezagame/ecommerce-react')
           }
         >
           Github
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("https://ecommerce-az.netlify.app/")}
+          onClick={() => window.open('https://ecommerce-az.netlify.app/')}
         >
           Website
         </button>
@@ -74,14 +113,14 @@ const Portfolio = () => {
         <button
           className="btn-main-offer btn-projects"
           onClick={() =>
-            window.open("https://github.com/alexandrezagame/covid19")
+            window.open('https://github.com/alexandrezagame/covid19')
           }
         >
           Github
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("https://covid19-az.netlify.app/")}
+          onClick={() => window.open('https://covid19-az.netlify.app/')}
         >
           Website
         </button>
@@ -114,13 +153,13 @@ const Portfolio = () => {
         </p>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("https://github.com/alexandrezagame/AHOY")}
+          onClick={() => window.open('https://github.com/alexandrezagame/AHOY')}
         >
           Github
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("https://vimeo.com/502096538")}
+          onClick={() => window.open('https://vimeo.com/502096538')}
         >
           Demo
         </button>
@@ -152,7 +191,7 @@ const Portfolio = () => {
           className="btn-main-offer btn-projects"
           onClick={() =>
             window.open(
-              "https://github.com/alexandrezagame/hackday-stock-market-app"
+              'https://github.com/alexandrezagame/hackday-stock-market-app'
             )
           }
         >
@@ -160,7 +199,7 @@ const Portfolio = () => {
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("https://digital-destiny.netlify.app/")}
+          onClick={() => window.open('https://digital-destiny.netlify.app/')}
         >
           Website
         </button>
@@ -193,14 +232,14 @@ const Portfolio = () => {
         <button
           className="btn-main-offer btn-projects"
           onClick={() =>
-            window.open("https://github.com/FAR-Fullstack/PrimeTime")
+            window.open('https://github.com/FAR-Fullstack/PrimeTime')
           }
         >
           Github
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("http://www.primetimefr.com/")}
+          onClick={() => window.open('http://www.primetimefr.com/')}
         >
           Website
         </button>
@@ -236,14 +275,14 @@ const Portfolio = () => {
         <button
           className="btn-main-offer btn-projects"
           onClick={() =>
-            window.open("https://github.com/alexandrezagame/fleapit")
+            window.open('https://github.com/alexandrezagame/fleapit')
           }
         >
           Github
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open("http://www.fleapit.net")}
+          onClick={() => window.open('http://www.fleapit.net')}
         >
           Website
         </button>
@@ -262,6 +301,20 @@ const Portfolio = () => {
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">
+          <div className="portfolio-image-box" onClick={openPopupboxMemories}>
+            <h3>
+              <b>Memories:</b> simple social media app
+            </h3>
+
+            <img
+              className="portfolio-image"
+              src={memories}
+              alt="Social media app"
+            />
+            <div className="overflow"></div>
+            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+          </div>
+
           <div className="portfolio-image-box" onClick={openPopupboxCommerce}>
             <h3>
               <b>Shopay:</b> E-Commerce site
