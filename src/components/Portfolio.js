@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import '../stylesheets/Projects.css';
-import memories from '../images/memories.png';
+import memories from '../images/memorygo.png';
 import ecommerce from '../images/ecommerce.png';
 import covid from '../images/covid.png';
 import ahoy from '../images/ahoy.png';
@@ -24,26 +24,29 @@ const Portfolio = () => {
         />
         <h3>Description</h3>
         <p>
-          The App is called "Memories" and it is a simple social media MERN
+          The App is called "Memorygo" and it is a simple social media MERN
           application that allows users to post interesting events that happened
-          in their lives.
+          in their lives and like other people posts.
         </p>
         <h3>Technology</h3>
         <p>
-          I am using React, Node.js, Express & MongoDBto build a Full Stack MERN
-          Project.
+          I am using React, Node.js, Express & MongoDB to build a Full Stack
+          MERN Project. I am deploying my database, frontend and backend on
+          Zeet.co
         </p>
         <button
           className="btn-main-offer btn-projects"
           onClick={() =>
-            window.open('https://github.com/alexandrezagame/memories-app-crud')
+            window.open(
+              'https://github.com/alexandrezagame/social-media-mern-app'
+            )
           }
         >
           Github
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open('https://memories-az.netlify.app/')}
+          onClick={() => window.open('https://memorygo.zeet.app')}
         >
           Website
         </button>
@@ -303,7 +306,7 @@ const Portfolio = () => {
         <div className="image-box-wraper row justify-content-center">
           <div className="portfolio-image-box" onClick={openPopupboxMemories}>
             <h3>
-              <b>Memories:</b> simple social media app
+              <b>Memorygo:</b> simple social media app
             </h3>
 
             <img
