@@ -1,6 +1,6 @@
-import React from "react";
-import "../stylesheets/About.css";
-import author from "../Alex.jpg";
+import React from 'react';
+import '../stylesheets/About.css';
+import author from '../Alex.jpg';
 
 const AboutMe = () => {
   return (
@@ -17,16 +17,14 @@ const AboutMe = () => {
             I’m a French-Uruguayan citizen living in Stockholm with a passion
             for coding and business. Hands-on experience engaging in all stages
             of a project development, including requirements definition, design,
-            execution and support. 
+            execution and support.
             <br />
             <br />
-            I am a creative and detail oriented web application developer who enjoys
-            the challenge of learning new technologies, solving design
-            challenges, and building high-quality software.
-            
-            I have international work experience in Sweden, Switzerland,
-            France, Spain and Brazil. Moreover I am passionate about photography
-            and voice acting.
+            I'm a creative and detail oriented web application developer who
+            enjoys the challenge of learning new technologies, solving design
+            challenges, and building high-quality software. I have international
+            work experience in Sweden, Switzerland, France, Spain and Brazil.
+            Moreover I am passionate about photography and voice acting.
           </p>
         </div>
       </div>

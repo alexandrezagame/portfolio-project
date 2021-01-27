@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "../stylesheets/Contact.css";
-import emailjs from "emailjs-com";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import '../stylesheets/Contact.css';
+import emailjs from 'emailjs-com';
+import { useForm } from 'react-hook-form';
 
 const Contact = () => {
-  const [successMessage, setSuccessMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState('');
   const { register, handleSubmit, errors } = useForm();
 
-  const serviceID = "service_ID";
-  const templateID = "template_ID";
-  const userID = "user_wIQVoVOuFRefoGUuTYwwH";
+  const serviceID = 'service_ID';
+  const templateID = 'template_ID';
+  const userID = 'user_wIQVoVOuFRefoGUuTYwwH';
 
   const onSubmit = (data, r) => {
     sendEmail(
@@ -30,7 +30,7 @@ const Contact = () => {
     emailjs
       .send(serviceID, templateID, variables, userID)
       .then(() => {
-        setSuccessMessage("Form sent successfully.");
+        setSuccessMessage('Form sent successfully.');
       })
       .catch((err) => console.error(`Something went wrong ${err}`));
   };
@@ -39,8 +39,16 @@ const Contact = () => {
     <div id="contact" className="contact">
       <div className="text-center">
         <h1>Contact me</h1>
-        <p>Reach out for further information or get in touch on Linkedin.</p>
-  <span className="success-message">{successMessage}</span>
+        <p>
+          Reach out for further information or get in touch on{' '}
+          <a
+            href="https://www.linkedin.com/in/alexandrezagame/"
+            target="_blank"
+          >
+            Linkedin
+          </a>
+        </p>
+        <span className="success-message">{successMessage}</span>
       </div>
       <div className="container">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,7 +62,7 @@ const Contact = () => {
                   placeholder="Name"
                   name="name"
                   ref={register({
-                    required: "Please enter your name",
+                    required: 'Please enter your name',
                   })}
                 />
                 <div className="line"></div>
@@ -70,7 +78,7 @@ const Contact = () => {
                   placeholder="Email"
                   name="email"
                   ref={register({
-                    required: "Please enter your email",
+                    required: 'Please enter your email',
                   })}
                 />
                 <div className="line"></div>
@@ -86,7 +94,7 @@ const Contact = () => {
                   placeholder="Subject"
                   name="subject"
                   ref={register({
-                    required: "Please enter the subject",
+                    required: 'Please enter the subject',
                   })}
                 />
                 <div className="line"></div>
@@ -101,7 +109,7 @@ const Contact = () => {
                   id="description"
                   type="text"
                   className="form-control"
-                  placeholder="Feel free to write here or to add me on Linkedin..."
+                  placeholder="Feel free to write here..."
                   name="description"
                 ></textarea>
                 <div className="line"></div>

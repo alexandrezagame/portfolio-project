@@ -11,7 +11,7 @@
   border-radius: 50%;
   padding: 0.3rem;
   border: 1px solid var(--primary-orange);
-  box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.5);
+  box-shadow: 3px 3px 10px 0px rgba(132, 132, 132, 0.5);
 }
 
 .about-heading {
@@ -31,6 +31,10 @@
   margin: 0.5rem 1rem;
   min-width: 16.875rem;
   border-radius: 3px;
+  border: 2px;
+  border-color: var(--primary-orange);
+  box-shadow: 3px 3px 10px 0px rgba(132, 132, 132, 0.5);
+
   background: var(--primary-light-grey);
   /* box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.5); */
 }
@@ -39,9 +43,12 @@
   color: var(--primary-blue);
   font-weight: 900;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
 }
 .card-text {
   text-align: center;
+  font-size: large;
 }
 
 @media (max-width: 468px) {
@@ -49,5 +56,3 @@
     width: 10rem;
   }
 }
-
-

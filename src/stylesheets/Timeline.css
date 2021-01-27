@@ -17,7 +17,7 @@
 
 .experience-wraper:before {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   left: 50%;
   margin-left: -0.0625rem;
@@ -67,7 +67,8 @@
 }
 
 .timeline-content b {
-  color: var(--primary-blue)
+  color: var(--primary-blue);
+  font-size: large;
 }
 
 /* .timeline-block-left h3 {
