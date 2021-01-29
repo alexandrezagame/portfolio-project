@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import '../stylesheets/Projects.css';
+import news from '../images/news.png';
 import memories from '../images/memorygo.png';
 import ecommerce from '../images/ecommerce.png';
 import covid from '../images/covid.png';
@@ -14,6 +15,46 @@ import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 import 'react-popupbox/dist/react-popupbox.css';
 
 const Portfolio = () => {
+  const openPopupboxNewspaper = () => {
+    const content = (
+      <>
+        <img
+          className="portfolio-image-popupbox"
+          src={news}
+          alt="Newspaper api project"
+        />
+        <h3>Description</h3>
+        <p>
+          The API Newspaper is a news application built using ReactJS and
+          NewsAPI that helps list news articles from various sources. I wanted
+          this project to have a look and feel of a classic paper newspaper.
+        </p>
+        <h3>Technology</h3>
+        <p>
+          React Context API, React Hooks, Axios, newsApi.ai, deployed on Netlify
+        </p>
+        <h3>Future implementations</h3>
+        <p>-search functionality</p>
+        <p>-pagination</p>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() =>
+            window.open('https://github.com/alexandrezagame/news-api-app')
+          }
+        >
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() => window.open('https://theapinewspaper.netlify.app/')}
+        >
+          Website
+        </button>
+      </>
+    );
+    PopupboxManager.open({ content });
+  };
+
   const openPopupboxMemories = () => {
     const content = (
       <>
@@ -304,6 +345,19 @@ const Portfolio = () => {
       <div className="container">
         <h1 className="text-uppercase text-center py-5">portfolio</h1>
         <div className="image-box-wraper row justify-content-center">
+          <div className="portfolio-image-box" onClick={openPopupboxNewspaper}>
+            <h3>
+              <b>The API Newspaper:</b> simple newspaper format
+            </h3>
+
+            <img
+              className="portfolio-image"
+              src={news}
+              alt="Social media app"
+            />
+            <div className="overflow"></div>
+            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+          </div>
           <div className="portfolio-image-box" onClick={openPopupboxMemories}>
             <h3>
               <b>Memorygo:</b> simple social media app
