@@ -39,7 +39,7 @@
 .main-info h1 {
   color: var(--primary-white);
   font-size: 4rem !important;
-  font-family: "Chamonix";
+  font-family: 'Chamonix';
   text-transform: uppercase;
   z-index: 3;
 }

@@ -127,7 +127,7 @@ const Portfolio = () => {
         </button>
         <button
           className="btn-main-offer btn-projects"
-          onClick={() => window.open('https://ecommerce-az.netlify.app/')}
+          onClick={() => window.open('https://shopay.netlify.app/')}
         >
           Website
         </button>
