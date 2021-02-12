@@ -342,110 +342,106 @@ const Portfolio = () => {
 
   return (
     <div id="portfolio" className="portfolio-wraper">
-      <div className="container">
-        <h1 className="text-uppercase text-center py-5">portfolio</h1>
-        <div className="image-box-wraper row justify-content-center">
-          <div className="portfolio-image-box" onClick={openPopupboxNewspaper}>
-            <h3>
-              <b>The API Newspaper:</b> simple newspaper format
-            </h3>
+      {/* <div className="container"> */}
+      <h1 className="text-uppercase text-center py-5">portfolio</h1>
+      <div className="image-box-wraper row justify-content-center">
+        <div className="portfolio-image-box" onClick={openPopupboxNewspaper}>
+          <h3>
+            <b>The API Newspaper:</b> simple newspaper format
+          </h3>
 
-            <img
-              className="portfolio-image"
-              src={news}
-              alt="Social media app"
-            />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
-          <div className="portfolio-image-box" onClick={openPopupboxMemories}>
-            <h3>
-              <b>Memorygo:</b> simple social media app
-            </h3>
+          <img className="portfolio-image" src={news} alt="Social media app" />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
+        <div className="portfolio-image-box" onClick={openPopupboxMemories}>
+          <h3>
+            <b>Memorygo:</b> simple social media app
+          </h3>
 
-            <img
-              className="portfolio-image"
-              src={memories}
-              alt="Social media app"
-            />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+          <img
+            className="portfolio-image"
+            src={memories}
+            alt="Social media app"
+          />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
 
-          <div className="portfolio-image-box" onClick={openPopupboxCommerce}>
-            <h3>
-              <b>Shopay:</b> E-Commerce site
-            </h3>
+        <div className="portfolio-image-box" onClick={openPopupboxCommerce}>
+          <h3>
+            <b>Shopay:</b> E-Commerce site
+          </h3>
 
-            <img
-              className="portfolio-image"
-              src={ecommerce}
-              alt="E-commerce website"
-            />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+          <img
+            className="portfolio-image"
+            src={ecommerce}
+            alt="E-commerce website"
+          />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
 
-          <div className="portfolio-image-box" onClick={openPopupboxCovid}>
-            <h3>
-              <b>Covid19:</b> Corona Virus tracker
-            </h3>
+        <div className="portfolio-image-box" onClick={openPopupboxCovid}>
+          <h3>
+            <b>Covid19:</b> Corona Virus tracker
+          </h3>
 
-            <img
-              className="portfolio-image"
-              src={covid}
-              alt="covid10 tracker app"
-            />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+          <img
+            className="portfolio-image"
+            src={covid}
+            alt="covid10 tracker app"
+          />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
 
-          <div className="portfolio-image-box" onClick={openPopupboxAhoy}>
-            <h3>
-              <b>Ahoy:</b> digital onboarding
-            </h3>
+        <div className="portfolio-image-box" onClick={openPopupboxAhoy}>
+          <h3>
+            <b>Ahoy:</b> digital onboarding
+          </h3>
 
-            <img className="portfolio-image" src={ahoy} alt="ahoy app" />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+          <img className="portfolio-image" src={ahoy} alt="ahoy app" />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
 
-          <div className="portfolio-image-box" onClick={openPopupboxCrypto}>
-            <h3>
-              <b>Digital Destiny:</b> crypto currency tracker
-            </h3>
-            <img className="portfolio-image" src={crypto} alt="crypto app" />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+        <div className="portfolio-image-box" onClick={openPopupboxCrypto}>
+          <h3>
+            <b>Digital Destiny:</b> crypto currency tracker
+          </h3>
+          <img className="portfolio-image" src={crypto} alt="crypto app" />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
 
-          <div className="portfolio-image-box" onClick={openPopupboxPrimetime}>
-            <h3>
-              <b>Primetime:</b> Paris based event company
-            </h3>
-            <img
-              className="portfolio-image"
-              src={primetime}
-              alt="Primetime client website"
-            />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+        <div className="portfolio-image-box" onClick={openPopupboxPrimetime}>
+          <h3>
+            <b>Primetime:</b> Paris based event company
+          </h3>
+          <img
+            className="portfolio-image"
+            src={primetime}
+            alt="Primetime client website"
+          />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
 
-          <div className="portfolio-image-box" onClick={openPopupboxFleapit}>
-            <h3>
-              <b>Fleapit:</b> non-monetary exchange platform
-            </h3>
-            <img
-              className="portfolio-image"
-              src={fleapit}
-              alt="Fleapit: non-monetary exchange platform"
-            />
-            <div className="overflow"></div>
-            <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
-          </div>
+        <div className="portfolio-image-box" onClick={openPopupboxFleapit}>
+          <h3>
+            <b>Fleapit:</b> non-monetary exchange platform
+          </h3>
+          <img
+            className="portfolio-image"
+            src={fleapit}
+            alt="Fleapit: non-monetary exchange platform"
+          />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
         </div>
       </div>
+      {/* </div> */}
       <PopupboxContainer {...popupboxConfig} />
     </div>
   );
