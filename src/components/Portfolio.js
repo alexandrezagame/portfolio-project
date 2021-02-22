@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import '../stylesheets/Projects.css';
+import monity from '../images/monity.png';
 import news from '../images/news.png';
 import memories from '../images/memorygo.png';
 import ecommerce from '../images/ecommerce.png';
@@ -15,6 +16,62 @@ import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 import 'react-popupbox/dist/react-popupbox.css';
 
 const Portfolio = () => {
+  const openPopupboxMonity = () => {
+    const content = (
+      <>
+        <img
+          className="portfolio-image-popupbox"
+          src={monity}
+          alt="Bank data aggregator"
+        />
+        <h3>Description</h3>
+        <p>
+          This is a web app integrating the Tink API to fetch users' account and
+          transaction data.
+          <br></br>
+          Top expenses: Displays all the data labeled as 'EXPENSES' by your
+          bank.
+          <br></br>
+          Most Recurrent Merchant: Displays the merchant where you have spent
+          the most number of times. Not the most amount of money.
+          <br></br>
+          Top 5 Merchants: Displays the 5 merchants where you have spent the
+          most amount of money.
+          <br></br>
+          Top Merchants per Category: Displays the merchants where you have
+          spent the most amount of money per category. Expenses are categorized
+          by your bank automatically. Some categories wont have any expenses due
+          to lack of data from your bank.
+        </p>
+        <h3>Technology</h3>
+        <p>
+          Tink API developer account, React, Material UI, ChartsJS, Clearbit API
+          (to fetch the logos) for the frontend and Express on the backend,
+          deployed on Netlify
+        </p>
+        <h3>Future implementations</h3>
+        <p>-search functionality</p>
+        <p>-pagination</p>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() =>
+            window.open(
+              'https://github.com/alexandrezagame/bankdata-aggregator'
+            )
+          }
+        >
+          Github
+        </button>
+        <button
+          className="btn-main-offer btn-projects"
+          onClick={() => window.open('https://monity.netlify.app/')}
+        >
+          Website
+        </button>
+      </>
+    );
+    PopupboxManager.open({ content });
+  };
   const openPopupboxNewspaper = () => {
     const content = (
       <>
@@ -351,6 +408,19 @@ const Portfolio = () => {
       {/* <div className="container"> */}
       <h1 className="text-uppercase text-center py-5">portfolio</h1>
       <div className="image-box-wraper row justify-content-center">
+        <div className="portfolio-image-box" onClick={openPopupboxMonity}>
+          <h3>
+            <b>Monity:</b> Bank Data Aggregator
+          </h3>
+
+          <img
+            className="portfolio-image"
+            src={monity}
+            alt="Bank data aggregator"
+          />
+          <div className="overflow"></div>
+          <FontAwesomeIcon className="portfolio-icon" icon={faSearchPlus} />
+        </div>
         <div className="portfolio-image-box" onClick={openPopupboxNewspaper}>
           <h3>
             <b>The API Newspaper:</b> simple newspaper format
