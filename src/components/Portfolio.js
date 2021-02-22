@@ -29,19 +29,19 @@ const Portfolio = () => {
           This is a web app integrating the Tink API to fetch users' account and
           transaction data.
           <br></br>
-          Top expenses: Displays all the data labeled as 'EXPENSES' by your
-          bank.
+          <b>Top expenses:</b> Displays all the data labeled as 'EXPENSES' by
+          your bank.
           <br></br>
-          Most Recurrent Merchant: Displays the merchant where you have spent
-          the most number of times. Not the most amount of money.
+          <b>Most Recurrent Merchant:</b> Displays the merchant where you have
+          spent the most number of times. Not the most amount of money.
           <br></br>
-          Top 5 Merchants: Displays the 5 merchants where you have spent the
-          most amount of money.
+          <b>Top 5 Merchants:</b> Displays the 5 merchants where you have spent
+          the most amount of money.
           <br></br>
-          Top Merchants per Category: Displays the merchants where you have
-          spent the most amount of money per category. Expenses are categorized
-          by your bank automatically. Some categories wont have any expenses due
-          to lack of data from your bank.
+          <b>Top Merchants per Category:</b> Displays the merchants where you
+          have spent the most amount of money per category. Expenses are
+          categorized by your bank automatically. Some categories wont have any
+          expenses due to lack of data from your bank.
         </p>
         <h3>Technology</h3>
         <p>
@@ -49,9 +49,6 @@ const Portfolio = () => {
           (to fetch the logos) for the frontend and Express on the backend,
           deployed on Netlify
         </p>
-        <h3>Future implementations</h3>
-        <p>-search functionality</p>
-        <p>-pagination</p>
         <button
           className="btn-main-offer btn-projects"
           onClick={() =>
