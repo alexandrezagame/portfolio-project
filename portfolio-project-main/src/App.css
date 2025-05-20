@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Nunito:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+@font-face {
+  font-family: 'Chamonix';
+  src: local('Rajdhani'), url(../src/fonts/CHAMONIX.otf) format('truetype');
+}
+
+:root {
+  --primary-white: #fff;
+  --primary-orange: #f25c54;
+  --primary-dark: rgb(52, 58, 64);
+  --primary-grey: #ccd1d9;
+  --primary-dark-grey: #666666;
+  --primary-red: #ef4035;
+  --primary-green: green;
+  --primary-hover-red: #f33501;
+  --primary-light-grey: #f0f2f5;
+  --primary-black: #000000;
+  --primary-blue: #2727e6;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+h1 {
+  font-size: 2rem !important;
+}

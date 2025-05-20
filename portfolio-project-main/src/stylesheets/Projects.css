@@ -1,0 +1,165 @@
+/* PORTFOLIO COMPONENT */
+
+.portfolio-wraper {
+  background: var(--primary-light-grey);
+  padding: 3rem 0;
+  margin: 0 auto !important;
+}
+
+.portfolio-wraper h1 {
+  color: var(--primary-blue);
+}
+
+.image-box-wraper {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+@media (min-width: 1000px) {
+  .portfolio-image {
+    width: 40vw !important;
+  }
+}
+
+.portfolio-image {
+  width: 100vw;
+  border: 1px solid var(--primary-light-grey);
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 0 5px 5px;
+  height: auto;
+}
+
+@media (min-width: 1200px) {
+  .portfolio-image-box {
+    width: 40vw !important;
+  }
+}
+
+.portfolio-image-box {
+  width: 100vw;
+  background: var(--primary-white);
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px rgba(132, 132, 132, 0.2);
+  position: relative;
+  margin: 1rem;
+  object-fit: cover !important;
+  cursor: pointer;
+}
+
+.portfolio-image-box h3 {
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--primary-dark-grey);
+}
+
+@media (max-width: 768px) {
+  .portfolio-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+}
+
+.portfolio-image-box:hover .overflow {
+  opacity: 60%;
+  transition: 0.3s ease-in-out;
+}
+
+.portfolio-icon {
+  position: absolute;
+  opacity: 0;
+  margin-left: -25.5rem;
+  margin-top: 10rem;
+  color: var(--primary-light-grey);
+  font-size: 2rem;
+}
+
+.portfolio-image-box:hover .portfolio-icon {
+  opacity: 70%;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* POPUP BOX */
+
+.portfolio-image-popupbox {
+  width: 100%;
+  object-fit: cover;
+}
+
+.popupbox-wrapper {
+  border-radius: 3px;
+  overflow: scroll !important;
+  max-width: 80%;
+  max-height: 75vh !important;
+  min-width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  background-color: white;
+}
+
+.popupbox-content {
+  overflow: auto !important;
+}
+
+@media (min-width: 1200px) {
+  .popupbox-content {
+    overflow: scroll !important;
+    max-width: 50vw;
+    padding: 20px 24px 30px;
+  }
+
+  .popupbox-content h3 {
+    margin: 0.5rem 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+  }
+
+  .popupbox-content p {
+    margin: 0.5rem 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    font-size: 1.1rem;
+  }
+
+  .popupbox-content button {
+    margin: 0.5rem 0 0.5rem 1rem;
+  }
+}
+
+.btn-projects {
+  cursor: pointer;
+  color: var(--primary-white);
+  margin-right: 0.5rem;
+  border-radius: 3px;
+  width: 6rem;
+  background: var(--primary-grey);
+}
+
+@media (max-width: 768px) {
+  .portfolio-image-popupbox {
+    width: 100%;
+  }
+}
+
+@media (max-height: 570px) {
+  .popupbox-wraper {
+    height: 100% !important;
+  }
+  .portfolio-image-popupbox {
+    width: 50%;
+  }
+}
+
+@media (max-height: 280px) {
+  .popupbox-wraper {
+    height: 90% !important;
+  }
+  .portfolio-image-popupbox {
+    width: 30%;
+  }
+}
