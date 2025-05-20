@@ -70,17 +70,6 @@ const Navbar = () => {
             <li className="nav-item">
               <Link
                 smooth={true}
-                to="portfolio"
-                offset={-40}
-                className="nav-link"
-                href="#"
-              >
-                Portfolio
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                smooth={true}
                 to="contact"
                 offset={-40}
                 className="nav-link"

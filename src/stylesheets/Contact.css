@@ -2,8 +2,9 @@
 
 .contact {
   background: var(--primary-white);
-  padding: 3rem 0;
-  height: 60vh;
+  padding: 1.5rem 0 2rem 0;
+  min-height: unset;
+  height: auto;
 }
 
 .contact h1 {
@@ -35,7 +36,7 @@
 }
 
 .contact .container {
-  padding: 4rem 0;
+  padding: 0;
 }
 
 .contact input:focus,

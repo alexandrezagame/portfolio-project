@@ -8,17 +8,34 @@ const Timeline = () => {
         <h1>Experience</h1>
       </div>
       <div className="container experience-wraper">
+      <div className="timeline-block timeline-block-right">
+          <div className="marker"></div>
+          <div className="timeline-content">
+            <h3>2025 – Head of Product</h3>
+            <b>Legitify Limited (Legaltech startup)</b>
+            <p>
+Led product for a remote notarization platform powering cross-border legal workflows.
+	<li>Defined and executed product strategy across AI, notarization, and compliance</li>
+	<li>Launched DocuSign integration, AI onboarding, and support automation</li>
+	<li>Reduced cancellation-related revenue loss by 75%</li>
+	<li>Boosted verified user growth by 60% and improved platform reliability</li>
+	<li>Shipped analytics stack and internal tools to scale operations</li>
+            </p>
+          </div>
+        </div>
+        {/* - */}
         <div className="timeline-block timeline-block-left">
           <div className="marker"></div>
           <div className="timeline-content">
-            <h3>2021 - Consultant</h3>
-            <b>Your company name here:</b>
+            <h3>2021-2025 - FE Engineer → PM </h3>
+            <b>Tink (Acquired by Visa)</b>
             <p>
-              Currently working as a Consultant web developer for Salt open to
-              Software Development Opportunities. <br />
-              <br />
-              Will your company be next on my timeline...? (Front End/Full
-              Stack)
+            Started as a front-end engineer before transitioning into product management at Europe’s leading open banking platform.
+	<li>Built core components for financial data and payments APIs</li>
+	<li>Improved developer experience across SDKs and internal tooling</li>
+	<li>Promoted to PM, leading roadmap execution for key B2B features</li>
+	<li>Collaborated cross-functionally with tech, design, data, sales, and legal</li>
+	<li>Delivered scalable fintech solutions used across multiple markets</li>
             </p>
           </div>
         </div>
@@ -27,7 +44,7 @@ const Timeline = () => {
           <div className="marker"></div>
           <div className="timeline-content">
             <h3>2020 - Web Development</h3>
-            <b>Salt:</b>
+            <b>Salt</b>
             <p>
               In September of 2020, I was selected as one out of 1500 applicants
               to join Salt's Full Stack Web Development Bootcamp alongside 30
@@ -36,7 +53,7 @@ const Timeline = () => {
               PostgreSQL, async programming, SPA, UX, Docker, Test Driven
               Development (TDD), REST APIs and agile work methods (SCRUM).
             </p>
-            <b>Le Wagon:</b>
+            <b>Le Wagon</b>
             <p>
               9-week intensive coding bootcamp learning HTML, CSS, Bootstrap,
               JavaScript ES2015, SQL, git, GitHub, Heroku and Ruby on Rails.
@@ -50,7 +67,7 @@ const Timeline = () => {
           <div className="marker"></div>
           <div className="timeline-content">
             <h3>2019 - Business Development</h3>
-            <b>Teamtailor:</b>
+            <b>Teamtailor</b>
             <p>
               As a Business Developer for the French speaking markets I
               prospected relentlessly to build my pipeline and build strong
@@ -67,7 +84,7 @@ const Timeline = () => {
           <div className="marker"></div>
           <div className="timeline-content">
             <h3>2017-2018 - Account Management</h3>
-            <b>Potentialpark:</b>
+            <b>Potentialpark</b>
             <p>
               As a Key Account Manager I built an expansive network, developed,
               and maintained relationships with Fortune 500 companies across the

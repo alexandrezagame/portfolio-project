@@ -30,14 +30,18 @@
 }
 
 .services .box {
-  height: 16rem;
-  border-bottom: 0.325rem solid var(--primary-orange);
-  padding: 0.625rem;
+  min-height: 16rem;
+  padding: 1.2rem 1rem;
   margin-bottom: 1.875rem;
   background: var(--primary-white);
   transition: 0.3s ease-in-out;
   box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.5);
   border-radius: 3px;
+  border-bottom: 0.325rem solid var(--primary-orange);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .services .box:hover {
@@ -59,4 +63,78 @@
 
 .services .box:hover p {
   color: var(--primary-white);
+}
+
+.flip-card {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  min-height: 16rem;
+  margin-bottom: 1.875rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 16rem;
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+  transform-style: preserve-3d;
+  display: flex;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 16rem;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.flip-card-front {
+  z-index: 2;
+}
+
+.flip-card-back {
+  transform: rotateX(180deg);
+  background: var(--primary-white);
+  border-bottom: 0.325rem solid var(--primary-orange);
+  box-shadow: 3px 3px 10px 0px rgba(132,132,132,0.5);
+  border-radius: 3px;
+  padding: 1.2rem 1rem;
+  color: var(--primary-dark);
+  z-index: 1;
+}
+
+.help-list {
+  text-align: left;
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .services .box,
+  .flip-card,
+  .flip-card-inner,
+  .flip-card-front,
+  .flip-card-back {
+    min-height: unset;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
