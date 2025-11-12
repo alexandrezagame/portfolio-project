@@ -5,11 +5,11 @@
   width: 100%;
   margin: 0;
   padding: 0 0 0 60px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   position: relative;
   overflow-y: visible;
   background: #000000;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 .experience-container {
