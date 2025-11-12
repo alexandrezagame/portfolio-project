@@ -211,7 +211,7 @@
   }
   
   .timeline-wrap {
-    padding: 0 4vw 2.2vh 4vw;
+    padding: 0 4vw calc(2.2vh + env(safe-area-inset-bottom, 0px) + 60px) 4vw;
   }
 }
 
@@ -247,6 +247,6 @@
   }
   
   .timeline-wrap {
-    padding: 0 3vw 2.2vh 3vw;
+    padding: 0 3vw calc(2.2vh + env(safe-area-inset-bottom, 0px) + 60px) 3vw;
   }
 }
