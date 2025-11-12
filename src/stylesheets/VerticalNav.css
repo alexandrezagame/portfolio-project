@@ -1,0 +1,192 @@
+/* VERTICAL NAVIGATION - FIXED ON ALL SECTIONS */
+
+.vertical-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  background: #e83124;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  z-index: 1000;
+  height: 100vh;
+}
+
+.vertical-nav-link {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  color: #ffffff !important;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: opacity 0.3s ease, text-shadow 0.3s ease;
+  white-space: nowrap;
+  padding: 0.75rem 1rem;
+  position: relative;
+  display: block;
+  width: fit-content;
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vertical-nav-link:link,
+.vertical-nav-link:visited,
+.vertical-nav-link:active,
+.vertical-nav-link:focus {
+  color: #ffffff !important;
+}
+
+.vertical-nav-link:hover {
+  opacity: 1;
+  color: #ffffff !important;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.3);
+  transition: opacity 0.3s ease, text-shadow 0.3s ease;
+}
+
+.vertical-nav-link.active {
+  opacity: 1;
+  color: #ffffff !important;
+}
+
+/* MOBILE STYLES - Hide vertical nav on mobile */
+@media (max-width: 768px) {
+  .vertical-nav {
+    display: none;
+  }
+}
+
+/* HAMBURGER MENU BUTTON */
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: #e83124;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-menu:hover {
+  background: #c92a1e;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.95);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.mobile-nav-link {
+  color: #ffffff !important;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 1rem 2rem;
+  position: relative;
+  display: block;
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+}
+
+.mobile-nav-link:link,
+.mobile-nav-link:visited,
+.mobile-nav-link:active,
+.mobile-nav-link:focus {
+  color: #ffffff !important;
+}
+
+.mobile-nav-link:hover {
+  color: #e83124 !important;
+  text-shadow: 
+    0 0 10px rgba(232, 49, 36, 0.8),
+    0 0 20px rgba(232, 49, 36, 0.5);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.mobile-nav-link.active {
+  color: #e83124 !important;
+}
+

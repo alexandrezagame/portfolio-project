@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Nunito:wght@200;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:wght@400;500;600;700;800;900&display=swap');
 
 @font-face {
   font-family: 'Chamonix';
@@ -22,10 +24,69 @@
   --primary-blue: #2727e6;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
 body {
   font-family: 'Roboto Condensed', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure touch targets are at least 44x44px for mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  .vertical-nav-link,
+  .contact-copy-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h1 {
   font-size: 2rem !important;
+}
+
+/* Make all main sections full height with scroll snap */
+section[id],
+div[id] {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Remove any default white backgrounds and spacing */
+#root {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+/* Ensure no gaps between sections */
+section,
+div[id="home"],
+div[id="about"],
+div[id="services"],
+div[id="timeline"],
+div[id="contact"] {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }

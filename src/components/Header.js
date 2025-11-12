@@ -1,48 +1,102 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-scroll';
+import InteractiveLight from './InteractiveLight';
+import VerticalNav from './VerticalNav';
 import '../stylesheets/Header.css';
-import Typed from 'react-typed';
 
 const Header = () => {
-  const [offset, setOffset] = useState(0);
+  const [lampPosition, setLampPosition] = useState({ 
+    x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0, 
+    y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0 
+  });
+  const dinoContainerRef = useRef(null);
+  const dinoImageRef = useRef(null);
 
   useEffect(() => {
-    function handleScroll() {
-      setOffset(window.pageYOffset);
-    }
+    const updateMask = () => {
+      if (!dinoContainerRef.current || !dinoImageRef.current) return;
 
-    window.addEventListener('scroll', handleScroll);
+      const dinoInner = dinoContainerRef.current.querySelector('.hero-subject-inner');
+      if (!dinoInner) return;
+      
+      const dinoInnerRect = dinoInner.getBoundingClientRect();
+      
+      // Calculate position relative to the Dino inner container
+      const relativeX = lampPosition.x - dinoInnerRect.left;
+      const relativeY = lampPosition.y - dinoInnerRect.top;
+
+      // Use a larger radius for better visibility - make it more forgiving
+      const radius = 400;
+      // Make the mask softer so Dino is more visible - show more area
+      const maskValue = `radial-gradient(circle ${radius}px at ${relativeX}px ${relativeY}px, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.2) 55%, rgba(0, 0, 0, 0) 85%)`;
+      
+      dinoImageRef.current.style.maskImage = maskValue;
+      dinoImageRef.current.style.WebkitMaskImage = maskValue;
+      dinoImageRef.current.style.opacity = '1';
+    };
+
+    // Initial update
+    const timeout = setTimeout(updateMask, 100);
+    
+    // Update on position change
+    updateMask();
+    const interval = setInterval(updateMask, 16); // ~60fps
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeout);
+      clearInterval(interval);
     };
-  }, [offset]);
+  }, [lampPosition]);
 
   return (
-    <div id="home" className="header-wraper">
-      <img
-        src="https://images.unsplash.com/photo-1546931588-d7ae6f398f9b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"
-        alt="test"
-        className="parallax"
-        style={{
-          filter: `blur(4px)`,
-          transform: `translateY(${offset * 0.2}px)`,
+    <section id="home" className="hero-section">
+      {/* Radial glow background */}
+      <div className="hero-gradient-overlay" />
+
+      {/* Interactive light */}
+      <InteractiveLight
+        shineColor="#e83124"
+        lampHeight="10vh"
+        lampWidth="10vh"
+        transitionDuration={500}
+        onPositionChange={(pos) => {
+          setLampPosition(pos);
         }}
       />
 
-      <div className="main-info">
-        <h1>Alexandre Zagame</h1>
-        <Typed
-          className="typed-text"
-          strings={['Web Design', 'Web Development', 'Product Management', 'No-code & automation', 'Growth strategy', 'Data-driven decisions', 'No-code & automation', 'Startup advisory']}
-          typeSpeed={40}
-          backSpeed={60}
-          loop
-        />
-
-        {/* <a href="#" className="btn-main-offer">Contact Me</a> */}
+      {/* Dino animation - only visible when light is on it */}
+      <div className="hero-subject" ref={dinoContainerRef}>
+        <div className="hero-subject-inner">
+          <img
+            ref={dinoImageRef}
+            src="/dino.gif"
+            alt="Dino animation"
+            className="hero-dino-image"
+            onLoad={() => console.log('Dino GIF loaded successfully')}
+            onError={(e) => console.error('Dino GIF failed to load:', e)}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+            }}
+          />
+        </div>
+        {/* Subtle reflection under Dino */}
+        <div className="hero-subject-reflection" />
       </div>
-    </div>
+
+      {/* Name lockup */}
+      <div className="hero-name-lockup">
+        <div className="hero-name-container">
+          <div className="hero-name-title">Product Expert</div>
+          <div className="hero-name-main">ALEX ZAGAME</div>
+        </div>
+      </div>
+
+      {/* Left rail nav */}
+      <VerticalNav />
+    </section>
   );
 };
 

@@ -3,10 +3,12 @@ import "../stylesheets/Services.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFigma } from "@fortawesome/free-brands-svg-icons";
 import { faTasks, faCode } from "@fortawesome/free-solid-svg-icons";
+import VerticalNav from "./VerticalNav";
 
 const Services = () => {
   return (
     <div id="services" className="services">
+      <VerticalNav />
       <h1 className="py-5">My Services</h1>
       <div className="container">
         <div className="row">

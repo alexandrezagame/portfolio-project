@@ -1,15 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../stylesheets/Navbar.css';
-import azblogo from '../images/AZBLOGO.png';
 
 import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      // Show navbar after scrolling past hero section (approximately 100vh)
+      setIsScrolled(scrollPosition > window.innerHeight * 0.8);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${isScrolled ? 'navbar-visible' : 'navbar-hidden'}`}>
       <div className="container">
         <a className="navbar-brand" href="#">
           {/* <img className="logo" src={azblogo} alt="logo" /> */}

@@ -8,10 +8,13 @@
 
 .profile-img {
   width: 16rem;
+  height: 16rem;
   border-radius: 50%;
   padding: 0.3rem;
   border: 1px solid var(--primary-orange);
   box-shadow: 3px 3px 10px 0px rgba(132, 132, 132, 0.5);
+  object-fit: cover;
+  display: block;
 }
 
 .about-heading {
@@ -54,6 +57,7 @@
 @media (max-width: 468px) {
   .profile-img {
     width: 10rem;
+    height: 10rem;
   }
 }
 

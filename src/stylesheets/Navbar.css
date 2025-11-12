@@ -10,6 +10,19 @@ nav {
   z-index: 2;
 }
 
+/* Hide navbar on hero section, show when scrolled */
+.navbar-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
 .navbar {
   height: 4rem;
 }

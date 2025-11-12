@@ -1,9 +1,10 @@
 /* FOOTER COMPONENT */
 
 .footer {
+  margin: 0;
+  padding: 3rem;
   background: var(--primary-light-grey);
   color: var(--primary-white);
-  padding: 3rem;
   height: 4rem !important;
   position: relative;
 }
