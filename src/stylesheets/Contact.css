@@ -286,10 +286,17 @@
   .contact {
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 50px);
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
   
   .contact-container {
     padding: 2rem 1.5rem;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px) + 50px);
   }
   
   .contact-header {
@@ -345,10 +352,17 @@
   .contact {
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 50px);
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
   
   .contact-container {
     padding: 1.5rem 1rem;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px) + 50px);
   }
   
   .contact-heading {

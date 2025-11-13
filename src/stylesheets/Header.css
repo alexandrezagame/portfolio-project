@@ -16,12 +16,20 @@
 @media (max-width: 768px) {
   .hero-section {
     padding-left: 0;
+    height: 100dvh;
+    overflow: hidden;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 50px);
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 468px) {
   .hero-section {
     padding-left: 0;
+    height: 100dvh;
+    overflow: hidden;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 50px);
+    box-sizing: border-box;
   }
 }
 
@@ -255,6 +263,8 @@
   .hero-name-lockup {
     height: 25vh;
     padding-right: 1rem;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 50px);
+    box-sizing: border-box;
   }
   
   .hero-subject {
