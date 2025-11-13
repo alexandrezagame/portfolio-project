@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import InteractiveLight from './InteractiveLight';
 import VerticalNav from './VerticalNav';
+import FloatingWords from './FloatingWords';
 import '../stylesheets/Header.css';
 
 const Header = () => {
@@ -63,6 +64,9 @@ const Header = () => {
           setLampPosition(pos);
         }}
       />
+
+      {/* Floating words that react to flashlight */}
+      <FloatingWords lightPosition={lampPosition} />
 
       {/* Dino animation - only visible when light is on it */}
       <div className="hero-subject" ref={dinoContainerRef}>

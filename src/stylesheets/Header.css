@@ -336,3 +336,75 @@
     );
   }
 }
+
+/* Floating Words Styles */
+.floating-words-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70vh;
+  width: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.floating-word {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e83124;
+  white-space: nowrap;
+  transition: opacity 0.1s ease-out, text-shadow 0.1s ease-out, filter 0.1s ease-out;
+}
+
+.floating-word.pulsing {
+  animation: wordPulse 2s ease-in-out infinite;
+}
+
+@keyframes wordPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(232, 49, 36, 0.5)) brightness(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(232, 49, 36, 0.8)) brightness(1.1);
+  }
+}
+
+/* Responsive adjustments for floating words */
+@media (max-width: 768px) {
+  .floating-words-container {
+    height: 75vh;
+  }
+  
+  .floating-word {
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+@media (max-width: 468px) {
+  .floating-words-container {
+    height: 80vh;
+  }
+  
+  .floating-word {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Respect reduced motion for floating words */
+@media (prefers-reduced-motion: reduce) {
+  .floating-word {
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .floating-word.pulsing {
+    animation: none;
+  }
+}
