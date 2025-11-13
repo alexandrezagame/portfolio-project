@@ -52,9 +52,14 @@ export default function FloatingWords({ lightPosition }) {
       const isSmallMobile = window.innerWidth <= 468;
       const padding = isMobile ? 20 : 100;
       
+      // Extra bottom padding on mobile to prevent text from being cut off by banner
+      // Account for text height (approximately 1.5x font size) plus some buffer
+      const textHeightBuffer = isMobile ? 40 : 0;
+      const bottomPadding = padding + textHeightBuffer;
+      
       // Ensure we don't exceed container bounds
       const maxWidth = rect.width - padding * 2;
-      const maxHeight = rect.height - padding * 2;
+      const maxHeight = rect.height - padding - bottomPadding;
       
       const availableWidth = Math.max(0, maxWidth);
       const availableHeight = Math.max(0, maxHeight);
@@ -124,6 +129,11 @@ export default function FloatingWords({ lightPosition }) {
           // Mobile: use grid center directly, no random offset
           x = cellCenterX;
           y = cellCenterY;
+          
+          // Ensure Y position doesn't get too close to bottom (account for text height)
+          // Text is centered with translate(-50%, -50%), so we need to leave space
+          const maxY = rect.height - bottomPadding;
+          y = Math.min(y, maxY);
         } else {
           // Desktop: try to find a non-overlapping position with small random offset
           let attempts = 0;
