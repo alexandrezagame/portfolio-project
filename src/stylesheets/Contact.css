@@ -106,6 +106,12 @@
   border-color: rgba(232, 49, 36, 0.8);
 }
 
+.contact-about-accordion-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .contact-about-text-container {
   display: flex;
   flex-direction: column;
