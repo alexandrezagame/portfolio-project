@@ -17,6 +17,7 @@ const SENTENCES = [
 const LIGHT_RADIUS = 200; // pixels - how close the light needs to be
 const CHARGE_DURATION = 1000; // ms - how long to stay at full intensity
 const FADE_DURATION = 2000; // ms - how long to fade back to zero
+const MIN_DISTANCE = 120; // minimum distance between sentence centers to avoid overlap
 
 export default function FloatingWords({ lightPosition }) {
   const containerRef = useRef(null);
@@ -27,44 +28,103 @@ export default function FloatingWords({ lightPosition }) {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const padding = 100;
-    
-    // Container is already constrained to top 70vh (excluding bottom black banner)
-    const availableWidth = rect.width - padding * 2;
-    const availableHeight = rect.height - padding;
-    
-    // Use a grid layout: 2 rows x 5 columns for 10 sentences
-    const rows = 2;
-    const cols = 5;
-    const cellWidth = availableWidth / cols;
-    const cellHeight = availableHeight / rows;
-    
-    // Shuffle sentences for variety
-    const shuffledSentences = [...SENTENCES].sort(() => Math.random() - 0.5);
-    
-    const newPositions = shuffledSentences.map((text, index) => {
-      const row = Math.floor(index / cols);
-      const col = index % cols;
-      
-      // Position in the center of each grid cell with some randomization
-      // Y position is relative to top of container, not including bottom banner
-      const cellCenterX = padding + (col + 0.5) * cellWidth;
-      const cellCenterY = padding + (row + 0.5) * cellHeight;
-      
-      // Add some random offset within the cell (30% of cell size) to avoid perfect grid alignment
-      const randomOffsetX = (Math.random() - 0.5) * cellWidth * 0.3;
-      const randomOffsetY = (Math.random() - 0.5) * cellHeight * 0.3;
-      
-      return {
-        id: index,
-        text: text,
-        x: cellCenterX + randomOffsetX,
-        y: cellCenterY + randomOffsetY,
-      };
-    });
+    const calculatePositions = () => {
+      if (!containerRef.current) return;
 
-    setPositions(newPositions);
+      const rect = containerRef.current.getBoundingClientRect();
+      // Responsive padding: smaller on mobile
+      const isMobile = window.innerWidth <= 768;
+      const padding = isMobile ? 40 : 100;
+      
+      // Ensure we don't exceed container bounds
+      const maxWidth = rect.width - padding * 2;
+      const maxHeight = rect.height - padding * 2;
+      
+      const availableWidth = Math.max(0, maxWidth);
+      const availableHeight = Math.max(0, maxHeight);
+      
+      // Use a grid layout: 2 rows x 5 columns for 10 sentences
+      const rows = 2;
+      const cols = 5;
+      const cellWidth = availableWidth / cols;
+      const cellHeight = availableHeight / rows;
+      
+      // Helper function to check if a position overlaps with existing positions
+      const checkOverlap = (x, y, existingPositions) => {
+        for (const pos of existingPositions) {
+          const distance = Math.hypot(x - pos.x, y - pos.y);
+          if (distance < MIN_DISTANCE) {
+            return true; // Overlaps
+          }
+        }
+        return false; // No overlap
+      };
+
+      // Shuffle sentences for variety
+      const shuffledSentences = [...SENTENCES].sort(() => Math.random() - 0.5);
+      
+      const newPositions = [];
+      const MAX_ATTEMPTS = 50; // max attempts to find a non-overlapping position per sentence
+      
+      shuffledSentences.forEach((text, index) => {
+        const row = Math.floor(index / cols);
+        const col = index % cols;
+        
+        // Start with grid cell center
+        const cellCenterX = padding + (col + 0.5) * cellWidth;
+        const cellCenterY = padding + (row + 0.5) * cellHeight;
+        
+        // Try to find a non-overlapping position
+        let attempts = 0;
+        let x, y;
+        let hasOverlap = true;
+        
+        // Reduce offset factor to prevent overlaps
+        const offsetFactor = isMobile ? 0.15 : 0.2;
+        
+        while (hasOverlap && attempts < MAX_ATTEMPTS) {
+          // Add random offset within the cell
+          const randomOffsetX = (Math.random() - 0.5) * cellWidth * offsetFactor;
+          const randomOffsetY = (Math.random() - 0.5) * cellHeight * offsetFactor;
+          
+          x = cellCenterX + randomOffsetX;
+          y = cellCenterY + randomOffsetY;
+          
+          // Ensure positions stay within bounds
+          x = Math.max(padding, Math.min(rect.width - padding, x));
+          y = Math.max(padding, Math.min(rect.height - padding, y));
+          
+          // Check for overlap with existing positions
+          hasOverlap = checkOverlap(x, y, newPositions);
+          attempts++;
+        }
+        
+        // If we couldn't find a perfect spot, use the grid center (guaranteed to be spaced)
+        if (hasOverlap) {
+          x = cellCenterX;
+          y = cellCenterY;
+        }
+        
+        newPositions.push({
+          id: index,
+          text: text,
+          x: x,
+          y: y,
+        });
+      });
+
+      setPositions(newPositions);
+    };
+
+    calculatePositions();
+
+    // Recalculate on window resize
+    const handleResize = () => {
+      calculatePositions();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Check which words are hit by the flashlight

@@ -91,6 +91,7 @@
   place-items: center;
   pointer-events: none;
   z-index: 3;
+  overflow: hidden;
 }
 
 .hero-subject-inner {
@@ -343,10 +344,12 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 70vh;
+  bottom: 0;
   width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 5;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .floating-word {
@@ -377,10 +380,6 @@
 
 /* Responsive adjustments for floating words */
 @media (max-width: 768px) {
-  .floating-words-container {
-    height: 75vh;
-  }
-  
   .floating-word {
     font-size: 0.85rem;
     letter-spacing: 0.06em;
@@ -388,10 +387,6 @@
 }
 
 @media (max-width: 468px) {
-  .floating-words-container {
-    height: 80vh;
-  }
-  
   .floating-word {
     font-size: 0.7rem;
     letter-spacing: 0.04em;

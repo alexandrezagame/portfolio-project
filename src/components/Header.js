@@ -65,11 +65,11 @@ const Header = () => {
         }}
       />
 
-      {/* Floating words that react to flashlight */}
-      <FloatingWords lightPosition={lampPosition} />
-
       {/* Dino animation - only visible when light is on it */}
       <div className="hero-subject" ref={dinoContainerRef}>
+        {/* Floating words that react to flashlight */}
+        <FloatingWords lightPosition={lampPosition} />
+        
         <div className="hero-subject-inner">
           <img
             ref={dinoImageRef}
