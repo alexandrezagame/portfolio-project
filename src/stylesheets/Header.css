@@ -6,8 +6,6 @@
   width: 100%;
   overflow: hidden;
   background: #020617;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   margin: 0;
   padding: 0;
   padding-left: 60px;
@@ -61,7 +59,8 @@
   position: absolute;
   inset: 0;
   display: grid;
-  gap: 1px;
+  gap: 0;
+  overflow: hidden;
 }
 
 .interactive-light-highlight {
@@ -70,6 +69,14 @@
   height: 100%;
   z-index: -10;
   transition: transform 500ms ease-out;
+  opacity: 0;
+  pointer-events: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .interactive-light-lamp {
@@ -78,6 +85,9 @@
   top: 0;
   left: 0;
   transition: transform 500ms ease-out;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Dino animation container - only in top 70% section */

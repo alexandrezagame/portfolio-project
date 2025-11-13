@@ -106,11 +106,18 @@ const Contact = () => {
         <div className="contact-separator"></div>
         
         <div className="contact-profile-section">
-          <img 
-            src="/alex.JPEG" 
-            alt="Alex Zagame" 
-            className="contact-profile-pic"
-          />
+          <div className="contact-profile-image-container">
+            <img 
+              src="/alex.JPEG" 
+              alt="Alex Zagame" 
+              className="contact-profile-pic"
+            />
+          </div>
+          <div className="contact-about-text-container">
+            <p className="contact-about-text">
+              I build products that solve real problems without drama. My background blends engineering and product strategy which means I move fast, ask hard questions, and keep teams focused on what actually matters. I care about clarity, speed, and results. I like working close to the details because that's where the real insights sit. I push for decisions, cut what slows us down, and aim for products that feel obvious to users. Outside work I stay curious and keep learning because it keeps me sharp.
+            </p>
+          </div>
         </div>
         
         <div className="contact-separator"></div>

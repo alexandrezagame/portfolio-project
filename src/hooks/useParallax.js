@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 /**
  * Custom hook for parallax effect based on scroll position
- * Works with scroll-snap by using both scroll position and viewport calculations
+ * Calculates parallax based on scroll position and viewport calculations
  * @param {number} speed - Parallax speed multiplier (0.1 to 0.5 recommended)
  * @param {string} direction - 'up' or 'down' for parallax direction
  * @returns {Object} - { ref, transform }

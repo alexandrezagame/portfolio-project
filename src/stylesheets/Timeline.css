@@ -8,16 +8,8 @@
   position: relative;
   overflow-y: visible;
   background: #000000;
-  scroll-snap-align: none;
-  scroll-snap-stop: normal;
 }
 
-@media (max-width: 768px) {
-  .experience {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-}
 
 .experience-container {
   max-width: 1200px;

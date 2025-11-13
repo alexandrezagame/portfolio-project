@@ -125,13 +125,23 @@ const InteractiveLight = ({
     requestAnimationFrame(() => {
       if (!lampRef.current || !highlightRef.current) return;
       
-      // Ensure smooth transitions to prevent glitches
+      // Round values to prevent sub-pixel rendering issues
+      const lampWidth = lampRef.current.offsetWidth;
+      const lampHeight = lampRef.current.offsetHeight;
+      const highlightWidth = highlightRef.current.offsetWidth;
+      const highlightHeight = highlightRef.current.offsetHeight;
+      
+      const lampX = Math.round(xPos - lampWidth / 2);
+      const lampY = Math.round(yPos - lampHeight / 2);
+      const highlightX = Math.round(xPos - highlightWidth / 2 + offset);
+      const highlightY = Math.round(yPos - highlightHeight / 2);
+      
+      // Use translate3d for hardware acceleration and smoother rendering
       lampRef.current.style.transition = `transform ${transitionDuration}ms ease-out, box-shadow ${transitionDuration}ms ease-out`;
       highlightRef.current.style.transition = `transform ${transitionDuration}ms ease-out`;
       
-      lampRef.current.style.transform = `translate(${xPos - lampRef.current.offsetWidth / 2}px, ${yPos - lampRef.current.offsetHeight / 2}px)`;
-
-      highlightRef.current.style.transform = `translate(${xPos - highlightRef.current.offsetWidth / 2 + offset}px, ${yPos - highlightRef.current.offsetHeight / 2}px)`;
+      lampRef.current.style.transform = `translate3d(${lampX}px, ${lampY}px, 0)`;
+      highlightRef.current.style.transform = `translate3d(${highlightX}px, ${highlightY}px, 0)`;
 
       // Notify parent of position change
       if (onPositionChange) {
@@ -151,21 +161,25 @@ const InteractiveLight = ({
     lastXRef.current = xPos;
     lastYRef.current = yPos;
 
-    lampRef.current.style.transform = `translate(${xPos}px, ${yPos}px)`;
+    lampRef.current.style.transform = `translate3d(${Math.round(xPos)}px, ${Math.round(yPos)}px, 0)`;
 
     setTimeout(() => {
       if (lampRef.current && highlightRef.current) {
-        lampRef.current.style.transform = `translate(${xPos * 1.8 - lampRef.current.offsetWidth / 2}px, ${yPos * 1.5 - lampRef.current.offsetHeight / 2}px)`;
-        highlightRef.current.style.transform = `translate(${xPos * 1.8 - highlightRef.current.offsetWidth / 2}px, ${yPos * 1.5 - highlightRef.current.offsetHeight / 2}px)`;
+        const lampX = Math.round(xPos * 1.8 - lampRef.current.offsetWidth / 2);
+        const lampY = Math.round(yPos * 1.5 - lampRef.current.offsetHeight / 2);
+        const highlightX = Math.round(xPos * 1.8 - highlightRef.current.offsetWidth / 2);
+        const highlightY = Math.round(yPos * 1.5 - highlightRef.current.offsetHeight / 2);
+        lampRef.current.style.transform = `translate3d(${lampX}px, ${lampY}px, 0)`;
+        highlightRef.current.style.transform = `translate3d(${highlightX}px, ${highlightY}px, 0)`;
       }
     }, 100);
 
     setTimeout(() => {
       if (lampRef.current && highlightRef.current) {
-        const finalX = xPos * 0.5 - lampRef.current.offsetWidth / 2;
-        const finalY = yPos * 0.3 - lampRef.current.offsetHeight / 2;
-        lampRef.current.style.transform = `translate(${finalX}px, ${finalY}px)`;
-        highlightRef.current.style.transform = `translate(${finalX}px, ${finalY}px)`;
+        const finalX = Math.round(xPos * 0.5 - lampRef.current.offsetWidth / 2);
+        const finalY = Math.round(yPos * 0.3 - lampRef.current.offsetHeight / 2);
+        lampRef.current.style.transform = `translate3d(${finalX}px, ${finalY}px, 0)`;
+        highlightRef.current.style.transform = `translate3d(${finalX}px, ${finalY}px, 0)`;
         if (onPositionChange) {
           onPositionChange({ x: xPos * 0.5, y: yPos * 0.3 });
         }

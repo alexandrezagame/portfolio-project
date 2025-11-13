@@ -20,8 +20,6 @@
   grid-template-rows: 1fr auto;
   overflow-x: visible;
   overflow-y: hidden;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   margin: 0;
   padding: 0;
   padding-left: 60px;

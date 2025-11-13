@@ -6,8 +6,6 @@
   width: 100%;
   margin: 0;
   padding: 2rem 0 2rem 60px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   position: relative;
   overflow-y: auto;
   text-align: center;
