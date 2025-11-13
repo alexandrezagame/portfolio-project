@@ -63,6 +63,34 @@
   color: #ffffff !important;
 }
 
+/* DINO NAVIGATION INDICATOR */
+.vertical-nav-dino {
+  position: absolute;
+  left: 100%;
+  transform: translateY(-50%) rotate(90deg);
+  margin-left: -5px;
+  z-index: 1001;
+  pointer-events: none;
+  transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+  will-change: top, transform;
+}
+
+.vertical-nav-dino.facing-down {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.vertical-nav-dino.facing-up {
+  transform: translateY(-50%) rotate(90deg) scaleX(-1);
+}
+
+.vertical-nav-dino-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
 /* MOBILE STYLES - Hide vertical nav on mobile */
 @media (max-width: 768px) {
   .vertical-nav {
