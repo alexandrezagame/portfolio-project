@@ -1,13 +1,11 @@
 /* SERVICES COMPONENT */
 
 .services {
-  height: 100vh;
   min-height: 100vh;
   width: 100%;
   margin: 0;
   padding: 2rem 0 2rem 60px;
   position: relative;
-  overflow-y: auto;
   text-align: center;
   background: #000000;
 }
