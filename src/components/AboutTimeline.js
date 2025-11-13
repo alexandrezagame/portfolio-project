@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import '../stylesheets/AboutTimeline.css';
 import VerticalNav from './VerticalNav';
+import { useParallax } from '../hooks/useParallax';
 
 const STEPS = [
   { id: 'business', year: '2014', category: 'Business', gradient: ['#5f5a63', '#c9b7c4'], caption: "Started by learning how to sell, build trust, and get close to users — the foundation for everything that came next." },
@@ -14,11 +15,15 @@ export default function AboutTimeline() {
 
   const activeStep = useMemo(() => STEPS.find((s) => s.id === active) ?? STEPS[0], [active]);
 
+  // Parallax effects for TRACK section - increased speeds for more noticeable effect
+  const trackWordParallax = useParallax(0.3, 'up');
+  const animationParallax = useParallax(0.4, 'down');
+
   return (
     <section id="about" className="about-who-section">
       <VerticalNav />
       <div className="who-wrapper" style={{ '--who-start': activeStep.gradient[0], '--who-end': activeStep.gradient[1] }}>
-        <div className="who-stage">
+        <div className="who-stage" ref={animationParallax.ref} style={{ transform: animationParallax.transform }}>
           <iframe
             src="https://lottie.host/embed/ef4227e4-b788-4a05-b9dc-c8ea7d953cdc/oCAEwSJbvZ.lottie"
             className="who-animation"
@@ -31,14 +36,14 @@ export default function AboutTimeline() {
             }}
           />
         </div>
-        <div className="who-word" aria-hidden>
+        <div className="who-word" ref={trackWordParallax.ref} style={{ transform: trackWordParallax.transform }} aria-hidden>
           <span>T</span><span>R</span><span>A</span><span>C</span><span>K</span>
         </div>
         {isHovering && (<p className="who-caption">{activeStep.caption}</p>)}
       </div>
 
       <div className="timeline-wrap">
-        <div className={`timeline-hint ${isHovering ? 'fade-out' : 'fade-in'}`}>- HOVER THE STEPS -</div>
+        <div className={`timeline-hint ${isHovering ? 'fade-out' : 'fade-in'}`}>HOVER THE STEPS</div>
         <div className="timeline-track show-ticks">
           <div className="tick" style={{ left: '0%' }}><span className="tick-year">2014</span></div>
           <div className="tick" style={{ left: '33.333%' }}><span className="tick-year">2020</span></div>

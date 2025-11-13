@@ -47,6 +47,8 @@
   user-select: none;
   position: relative;
   z-index: 2;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
 
   background: linear-gradient(180deg, var(--who-start), var(--who-end));
   -webkit-background-clip: text;
@@ -68,6 +70,8 @@
   place-items: center;
   pointer-events: none;
   z-index: 1;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
 }
 
 .who-animation {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/Timeline.css';
 import VerticalNav from './VerticalNav';
+import { useParallax } from '../hooks/useParallax';
 
 const experiences = [
   {
@@ -202,12 +203,56 @@ const ExperienceImage = ({ logo, id }) => {
   );
 };
 
+// Experience card component with parallax
+const ExperienceCard = ({ exp, index }) => {
+  // Staggered parallax for cards - alternating directions, increased speeds
+  const cardParallax = useParallax(0.2 + (index % 3) * 0.05, index % 2 === 0 ? 'up' : 'down');
+  
+  return (
+    <div className="experience-card" ref={cardParallax.ref} style={{ transform: cardParallax.transform }}>
+      <div className="experience-card-content">
+        <div className="experience-card-main">
+          <div className="experience-card-tags">
+            {exp.tags.map((tag) => (
+              <span key={tag} className="experience-tag">{tag}</span>
+            ))}
+          </div>
+          <h3 className="experience-card-title">
+            {exp.title}
+          </h3>
+          <p className="experience-card-summary">
+            {exp.summary}
+          </p>
+          <ul className="experience-card-highlights">
+            {exp.highlights.map((highlight, idx) => (
+              <li key={idx}>{highlight}</li>
+            ))}
+          </ul>
+          <div className="experience-card-meta">
+            <span className="experience-company">{exp.company}</span>
+            <span className="experience-separator">•</span>
+            <span className="experience-period">{exp.period}</span>
+          </div>
+        </div>
+        <div className="experience-card-image">
+          <div className="experience-image-wrapper">
+            <ExperienceImage logo={exp.logo} id={exp.id} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Timeline = () => {
+  // Parallax for header - increased speed for more noticeable effect
+  const headerParallax = useParallax(0.25, 'up');
+
   return (
     <div id="timeline" className="experience">
       <VerticalNav />
       <div className="experience-container">
-        <div className="experience-header">
+        <div className="experience-header" ref={headerParallax.ref} style={{ transform: headerParallax.transform }}>
           <h2 className="experience-heading">Experience</h2>
           <p className="experience-description">
             A journey from business development to product leadership, building skills across sales, engineering, and product management.
@@ -215,39 +260,8 @@ const Timeline = () => {
         </div>
 
         <div className="experience-grid">
-          {experiences.map((exp) => (
-            <div key={exp.id} className="experience-card">
-              <div className="experience-card-content">
-                <div className="experience-card-main">
-                  <div className="experience-card-tags">
-                    {exp.tags.map((tag) => (
-                      <span key={tag} className="experience-tag">{tag}</span>
-                    ))}
-                  </div>
-                  <h3 className="experience-card-title">
-                    {exp.title}
-                  </h3>
-                  <p className="experience-card-summary">
-                    {exp.summary}
-                  </p>
-                  <ul className="experience-card-highlights">
-                    {exp.highlights.map((highlight, idx) => (
-                      <li key={idx}>{highlight}</li>
-                    ))}
-                  </ul>
-                  <div className="experience-card-meta">
-                    <span className="experience-company">{exp.company}</span>
-                    <span className="experience-separator">•</span>
-                    <span className="experience-period">{exp.period}</span>
-                  </div>
-                </div>
-                <div className="experience-card-image">
-                  <div className="experience-image-wrapper">
-                    <ExperienceImage logo={exp.logo} id={exp.id} />
-                  </div>
-                </div>
-              </div>
-            </div>
+          {experiences.map((exp, index) => (
+            <ExperienceCard key={exp.id} exp={exp} index={index} />
           ))}
         </div>
       </div>

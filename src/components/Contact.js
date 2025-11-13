@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faMapMarkerAlt, faPhone, faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faGithubAlt, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons';
 import '../stylesheets/Contact.css';
 import VerticalNav from './VerticalNav';
@@ -9,32 +9,13 @@ const APP_EMAIL = 'zagamealexandre@gmail.com';
 const APP_PHONE = '+46 767610630';
 const APP_ADDRESS = 'Stockholm, Sweden';
 
-const CopyButton = ({ text, className = '' }) => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-    }
-  };
-
-  return (
-    <button
-      className={`contact-copy-btn ${className}`}
-      onClick={handleCopy}
-      aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-      disabled={copied}
-    >
-      <FontAwesomeIcon
-        icon={copied ? faCheck : faCopy}
-        className={copied ? 'contact-copy-icon copied' : 'contact-copy-icon'}
-      />
-    </button>
-  );
+const handleCopy = async (text, e) => {
+  e.preventDefault();
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
 };
 
 const ContactBox = ({ icon, title, children, className = '' }) => {
@@ -76,9 +57,6 @@ const Contact = () => {
       <div className="contact-container">
         <div className="contact-header">
           <h1 className="contact-heading">Contact Me</h1>
-          <p className="contact-subtitle">
-            Get in touch to discuss opportunities, collaborations, or just say hello.
-          </p>
         </div>
         
         <div className="contact-separator"></div>
@@ -92,10 +70,10 @@ const Contact = () => {
               <a
                 href={`mailto:${APP_EMAIL}`}
                 className="contact-info-link"
+                onClick={(e) => handleCopy(APP_EMAIL, e)}
               >
                 {APP_EMAIL}
               </a>
-              <CopyButton text={APP_EMAIL} />
             </div>
           </ContactBox>
           
@@ -117,12 +95,22 @@ const Contact = () => {
               <a
                 href={`tel:${APP_PHONE.replace(/\s/g, '')}`}
                 className="contact-info-link"
+                onClick={(e) => handleCopy(APP_PHONE, e)}
               >
                 {APP_PHONE}
               </a>
-              <CopyButton text={APP_PHONE} />
             </div>
           </ContactBox>
+        </div>
+        
+        <div className="contact-separator"></div>
+        
+        <div className="contact-profile-section">
+          <img 
+            src="/alex.JPEG" 
+            alt="Alex Zagame" 
+            className="contact-profile-pic"
+          />
         </div>
         
         <div className="contact-separator"></div>
@@ -131,6 +119,9 @@ const Contact = () => {
           <div className="contact-social-background"></div>
           <div className="contact-social-content">
             <h2 className="contact-social-heading">Find me online</h2>
+            <p className="contact-subtitle">
+              Get in touch to discuss opportunities, collaborations, or just say hello.
+            </p>
             <div className="contact-social-links">
               {socialLinks.map((link) => (
                 <a
