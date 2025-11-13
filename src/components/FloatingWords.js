@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../stylesheets/Header.css';
 
-const SENTENCES = [
+const SENTENCES_DESKTOP = [
   'Move with intent',
   'Think in systems',
   'Design for clarity',
@@ -14,10 +14,25 @@ const SENTENCES = [
   'Make it matter',
 ];
 
-const LIGHT_RADIUS = 200; // pixels - how close the light needs to be
+const SENTENCES_MOBILE = [
+  'Intent first',
+  'Systems thinking',
+  'Clear design',
+  'Ship fast',
+  'Own it',
+  'Cut noise',
+  'Fix pain',
+  'Quality scales',
+  'Lead focus',
+  'Make it count',
+];
+
+const LIGHT_RADIUS = 120; // pixels - how close the light needs to be (reduced for closer proximity)
 const CHARGE_DURATION = 1000; // ms - how long to stay at full intensity
 const FADE_DURATION = 2000; // ms - how long to fade back to zero
-const MIN_DISTANCE = 120; // minimum distance between sentence centers to avoid overlap
+const MIN_DISTANCE_DESKTOP = 180; // minimum distance between sentence centers on desktop
+const MIN_DISTANCE_MOBILE = 200; // minimum distance between sentence centers on mobile (much larger to prevent overlap)
+const MIN_DISTANCE_SMALL_MOBILE = 180; // minimum distance for very small screens
 
 export default function FloatingWords({ lightPosition }) {
   const containerRef = useRef(null);
@@ -34,7 +49,8 @@ export default function FloatingWords({ lightPosition }) {
       const rect = containerRef.current.getBoundingClientRect();
       // Responsive padding: smaller on mobile
       const isMobile = window.innerWidth <= 768;
-      const padding = isMobile ? 40 : 100;
+      const isSmallMobile = window.innerWidth <= 468;
+      const padding = isMobile ? 20 : 100;
       
       // Ensure we don't exceed container bounds
       const maxWidth = rect.width - padding * 2;
@@ -43,25 +59,51 @@ export default function FloatingWords({ lightPosition }) {
       const availableWidth = Math.max(0, maxWidth);
       const availableHeight = Math.max(0, maxHeight);
       
-      // Use a grid layout: 2 rows x 5 columns for 10 sentences
-      const rows = 2;
-      const cols = 5;
+      // Use different grid layouts for mobile vs desktop
+      // Small mobile: 1 column x 10 rows (single column for maximum spacing)
+      // Mobile: 2 columns x 5 rows (more vertical spacing)
+      // Desktop: 5 columns x 2 rows (more horizontal spacing)
+      let cols, rows;
+      if (isSmallMobile) {
+        cols = 1;
+        rows = 10;
+      } else if (isMobile) {
+        cols = 2;
+        rows = 5;
+      } else {
+        cols = 5;
+        rows = 2;
+      }
+      
       const cellWidth = availableWidth / cols;
       const cellHeight = availableHeight / rows;
+      
+      // Use larger minimum distance on mobile, even larger on small mobile
+      let minDistance;
+      if (isSmallMobile) {
+        minDistance = MIN_DISTANCE_SMALL_MOBILE;
+      } else if (isMobile) {
+        minDistance = MIN_DISTANCE_MOBILE;
+      } else {
+        minDistance = MIN_DISTANCE_DESKTOP;
+      }
       
       // Helper function to check if a position overlaps with existing positions
       const checkOverlap = (x, y, existingPositions) => {
         for (const pos of existingPositions) {
           const distance = Math.hypot(x - pos.x, y - pos.y);
-          if (distance < MIN_DISTANCE) {
+          if (distance < minDistance) {
             return true; // Overlaps
           }
         }
         return false; // No overlap
       };
 
+      // Use different sentences for mobile vs desktop
+      const sentences = isMobile ? SENTENCES_MOBILE : SENTENCES_DESKTOP;
+      
       // Shuffle sentences for variety
-      const shuffledSentences = [...SENTENCES].sort(() => Math.random() - 0.5);
+      const shuffledSentences = [...sentences].sort(() => Math.random() - 0.5);
       
       const newPositions = [];
       const MAX_ATTEMPTS = 50; // max attempts to find a non-overlapping position per sentence
@@ -74,35 +116,42 @@ export default function FloatingWords({ lightPosition }) {
         const cellCenterX = padding + (col + 0.5) * cellWidth;
         const cellCenterY = padding + (row + 0.5) * cellHeight;
         
-        // Try to find a non-overlapping position
-        let attempts = 0;
+        // On mobile, use grid centers directly (no random offset) to prevent overlaps
+        // On desktop, allow small random offset for visual variety
         let x, y;
-        let hasOverlap = true;
         
-        // Reduce offset factor to prevent overlaps
-        const offsetFactor = isMobile ? 0.15 : 0.2;
-        
-        while (hasOverlap && attempts < MAX_ATTEMPTS) {
-          // Add random offset within the cell
-          const randomOffsetX = (Math.random() - 0.5) * cellWidth * offsetFactor;
-          const randomOffsetY = (Math.random() - 0.5) * cellHeight * offsetFactor;
-          
-          x = cellCenterX + randomOffsetX;
-          y = cellCenterY + randomOffsetY;
-          
-          // Ensure positions stay within bounds
-          x = Math.max(padding, Math.min(rect.width - padding, x));
-          y = Math.max(padding, Math.min(rect.height - padding, y));
-          
-          // Check for overlap with existing positions
-          hasOverlap = checkOverlap(x, y, newPositions);
-          attempts++;
-        }
-        
-        // If we couldn't find a perfect spot, use the grid center (guaranteed to be spaced)
-        if (hasOverlap) {
+        if (isMobile) {
+          // Mobile: use grid center directly, no random offset
           x = cellCenterX;
           y = cellCenterY;
+        } else {
+          // Desktop: try to find a non-overlapping position with small random offset
+          let attempts = 0;
+          let hasOverlap = true;
+          const offsetFactor = 0.2;
+          
+          while (hasOverlap && attempts < MAX_ATTEMPTS) {
+            // Add random offset within the cell
+            const randomOffsetX = (Math.random() - 0.5) * cellWidth * offsetFactor;
+            const randomOffsetY = (Math.random() - 0.5) * cellHeight * offsetFactor;
+            
+            x = cellCenterX + randomOffsetX;
+            y = cellCenterY + randomOffsetY;
+            
+            // Ensure positions stay within bounds
+            x = Math.max(padding, Math.min(rect.width - padding, x));
+            y = Math.max(padding, Math.min(rect.height - padding, y));
+            
+            // Check for overlap with existing positions
+            hasOverlap = checkOverlap(x, y, newPositions);
+            attempts++;
+          }
+          
+          // If we couldn't find a perfect spot, use the grid center
+          if (hasOverlap) {
+            x = cellCenterX;
+            y = cellCenterY;
+          }
         }
         
         newPositions.push({
