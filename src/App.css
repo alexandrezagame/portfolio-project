@@ -59,6 +59,14 @@ h1 {
   font-size: 2rem !important;
 }
 
+h2 {
+  font-size: 40px !important;
+}
+
+h3 {
+  font-size: 32px !important;
+}
+
 
 /* Remove any default white backgrounds and spacing */
 #root {

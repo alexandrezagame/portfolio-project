@@ -23,7 +23,7 @@ const ContactBox = ({ icon, title, children, className = '' }) => {
     <div className={`contact-box ${className}`}>
       <div className="contact-box-header">
         <FontAwesomeIcon icon={icon} className="contact-box-icon" />
-        <h2 className="contact-box-title">{title}</h2>
+        <h3 className="contact-box-title">{title}</h3>
       </div>
       <div className="contact-box-content">
         {children}
@@ -56,7 +56,7 @@ const Contact = () => {
       <VerticalNav />
       <div className="contact-container">
         <div className="contact-header">
-          <h1 className="contact-heading">Contact Me</h1>
+          <h2 className="contact-heading">Contact Me</h2>
         </div>
         
         <div className="contact-separator"></div>
@@ -125,7 +125,7 @@ const Contact = () => {
         <div className="contact-social-section">
           <div className="contact-social-background"></div>
           <div className="contact-social-content">
-            <h2 className="contact-social-heading">Find me online</h2>
+            <h3 className="contact-social-heading">Find me online</h3>
             <p className="contact-subtitle">
               Get in touch to discuss opportunities, collaborations, or just say hello.
             </p>
