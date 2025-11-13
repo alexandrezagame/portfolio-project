@@ -206,7 +206,7 @@ const ExperienceImage = ({ logo, id }) => {
 // Experience card component with parallax
 const ExperienceCard = ({ exp, index }) => {
   // Staggered parallax for cards - alternating directions, increased speeds
-  const cardParallax = useParallax(0.2 + (index % 3) * 0.05, index % 2 === 0 ? 'up' : 'down');
+  const cardParallax = useParallax(0.35 + (index % 3) * 0.08, index % 2 === 0 ? 'up' : 'down');
   
   return (
     <div className="experience-card" ref={cardParallax.ref} style={{ transform: cardParallax.transform }}>
@@ -246,7 +246,7 @@ const ExperienceCard = ({ exp, index }) => {
 
 const Timeline = () => {
   // Parallax for header - increased speed for more noticeable effect
-  const headerParallax = useParallax(0.25, 'up');
+  const headerParallax = useParallax(0.4, 'up');
 
   return (
     <div id="timeline" className="experience">

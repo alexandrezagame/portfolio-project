@@ -16,8 +16,8 @@ export default function AboutTimeline() {
   const activeStep = useMemo(() => STEPS.find((s) => s.id === active) ?? STEPS[0], [active]);
 
   // Parallax effects for TRACK section - increased speeds for more noticeable effect
-  const trackWordParallax = useParallax(0.3, 'up');
-  const animationParallax = useParallax(0.4, 'down');
+  const trackWordParallax = useParallax(0.5, 'up');
+  const animationParallax = useParallax(0.6, 'down');
 
   return (
     <section id="about" className="about-who-section">

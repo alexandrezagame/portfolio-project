@@ -45,7 +45,7 @@ export const useParallax = (speed = 0.2, direction = 'up') => {
       const clampedDistance = Math.max(-2, Math.min(2, normalizedDistance));
       
       // Calculate parallax offset - increased multiplier for more noticeable effect
-      const offset = clampedDistance * speed * 80;
+      const offset = clampedDistance * speed * 120;
       
       // Apply direction
       const finalOffset = direction === 'down' ? -offset : offset;
