@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import InteractiveLight from './InteractiveLight';
 import VerticalNav from './VerticalNav';
 import FloatingWords from './FloatingWords';
+import { LiquidEffectAnimation } from './LiquidEffectAnimation';
 import '../stylesheets/Header.css';
 
 const Header = () => {
@@ -51,6 +52,9 @@ const Header = () => {
 
   return (
     <section id="home" className="hero-section">
+      {/* Liquid effect background */}
+      <LiquidEffectAnimation />
+
       {/* Radial glow background */}
       <div className="hero-gradient-overlay" />
 
