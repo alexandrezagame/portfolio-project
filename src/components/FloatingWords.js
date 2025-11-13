@@ -20,10 +20,6 @@ const SENTENCES_MOBILE = [
   'Clear design',
   'Ship fast',
   'Own it',
-  'Cut noise',
-  'Fix pain',
-  'Quality scales',
-  'Lead focus',
   'Make it count',
 ];
 
@@ -65,16 +61,16 @@ export default function FloatingWords({ lightPosition }) {
       const availableHeight = Math.max(0, maxHeight);
       
       // Use different grid layouts for mobile vs desktop
-      // Small mobile: 1 column x 10 rows (single column for maximum spacing)
-      // Mobile: 2 columns x 5 rows (more vertical spacing)
+      // Small mobile: 1 column x 6 rows (single column for maximum spacing)
+      // Mobile: 2 columns x 3 rows (more vertical spacing)
       // Desktop: 5 columns x 2 rows (more horizontal spacing)
       let cols, rows;
       if (isSmallMobile) {
         cols = 1;
-        rows = 10;
+        rows = 6;
       } else if (isMobile) {
         cols = 2;
-        rows = 5;
+        rows = 3;
       } else {
         cols = 5;
         rows = 2;

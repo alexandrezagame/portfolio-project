@@ -12,6 +12,13 @@
   scroll-snap-stop: normal;
 }
 
+@media (max-width: 768px) {
+  .experience {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
 .experience-container {
   max-width: 1200px;
   margin: 0 auto;

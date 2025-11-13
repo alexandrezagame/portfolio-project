@@ -121,14 +121,23 @@ const InteractiveLight = ({
       }
     }
 
-    lampRef.current.style.transform = `translate(${xPos - lampRef.current.offsetWidth / 2}px, ${yPos - lampRef.current.offsetHeight / 2}px)`;
+    // Use requestAnimationFrame to prevent glitches when pausing
+    requestAnimationFrame(() => {
+      if (!lampRef.current || !highlightRef.current) return;
+      
+      // Ensure smooth transitions to prevent glitches
+      lampRef.current.style.transition = `transform ${transitionDuration}ms ease-out, box-shadow ${transitionDuration}ms ease-out`;
+      highlightRef.current.style.transition = `transform ${transitionDuration}ms ease-out`;
+      
+      lampRef.current.style.transform = `translate(${xPos - lampRef.current.offsetWidth / 2}px, ${yPos - lampRef.current.offsetHeight / 2}px)`;
 
-    highlightRef.current.style.transform = `translate(${xPos - highlightRef.current.offsetWidth / 2 + offset}px, ${yPos - highlightRef.current.offsetHeight / 2}px)`;
+      highlightRef.current.style.transform = `translate(${xPos - highlightRef.current.offsetWidth / 2 + offset}px, ${yPos - highlightRef.current.offsetHeight / 2}px)`;
 
-    // Notify parent of position change
-    if (onPositionChange) {
-      onPositionChange({ x: xPos, y: yPos });
-    }
+      // Notify parent of position change
+      if (onPositionChange) {
+        onPositionChange({ x: xPos, y: yPos });
+      }
+    });
 
     lastXRef.current = xPos;
     lastYRef.current = yPos;
@@ -194,7 +203,7 @@ const InteractiveLight = ({
           backgroundColor: '#fff',
           borderRadius: `calc(${lampWidth} / 2)`,
           boxShadow: getLampBoxShadow(lampDirection),
-          transitionDuration: `${transitionDuration}ms`,
+          transition: `transform ${transitionDuration}ms ease-out, box-shadow ${transitionDuration}ms ease-out`,
         }}
       />
     </div>
