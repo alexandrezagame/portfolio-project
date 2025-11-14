@@ -77,6 +77,7 @@
   inset: 0;
   mix-blend-mode: screen;
   opacity: 0.85;
+  z-index: 1;
 }
 
 .who-caption {
@@ -84,10 +85,21 @@
   bottom: 10vh;
   width: min(920px, 90vw);
   text-align: center;
+  z-index: 10;
   font-weight: 600;
   font-size: clamp(0.9rem, 1.4vw, 1.05rem);
   letter-spacing: 0.01em;
   color: #f7fb4b;
+  transition: opacity 0.3s ease;
+}
+
+.who-caption.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.who-caption.visible {
+  opacity: 1;
 }
 
 /* ---------- Red timeline bar with ticks ---------- */
@@ -213,6 +225,15 @@
 .segment.is-active { background: rgba(0,0,0,0.25); }
 
 @media (max-width: 768px) {
+  .who-caption {
+    z-index: 20;
+    position: absolute;
+  }
+
+  .who-animation {
+    z-index: 1;
+  }
+
   .about-who-section {
     padding-left: 0;
     padding-right: 0;

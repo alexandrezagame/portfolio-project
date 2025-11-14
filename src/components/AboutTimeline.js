@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import '../stylesheets/AboutTimeline.css';
 import VerticalNav from './VerticalNav';
 import { useParallax } from '../hooks/useParallax';
-import { DottedSurface } from './three/DottedSurface';
+import { GenerativeArtScene } from './three/GenerativeArtScene';
 
 const STEPS = [
   { id: 'business', year: '2014', category: 'Business', gradient: ['#5f5a63', '#c9b7c4'], caption: "Started by learning how to sell, build trust, and get close to users — the foundation for everything that came next." },
@@ -13,8 +13,19 @@ const STEPS = [
 export default function AboutTimeline() {
   const [active, setActive] = useState('product');
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const activeStep = useMemo(() => STEPS.find((s) => s.id === active) ?? STEPS[0], [active]);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Parallax effects for TRACK section - increased speeds for more noticeable effect
   const trackWordParallax = useParallax(0.5, 'up');
@@ -25,12 +36,12 @@ export default function AboutTimeline() {
       <VerticalNav />
       <div className="who-wrapper" style={{ '--who-start': activeStep.gradient[0], '--who-end': activeStep.gradient[1] }}>
         <div className="who-stage" ref={animationParallax.ref} style={{ transform: animationParallax.transform }}>
-          <DottedSurface className="who-animation" />
+          <GenerativeArtScene className="who-animation" color={activeStep.gradient[1]} />
         </div>
         <div className="who-word" ref={trackWordParallax.ref} style={{ transform: trackWordParallax.transform }} aria-hidden>
           <span>T</span><span>R</span><span>A</span><span>C</span><span>K</span>
         </div>
-        {isHovering && (<p className="who-caption">{activeStep.caption}</p>)}
+        <p className={`who-caption ${isHovering || isMobile ? 'visible' : 'hidden'}`}>{activeStep.caption}</p>
       </div>
 
       <div className="timeline-wrap">
