@@ -11,17 +11,28 @@ export function GenerativeArtScene({ className = '', color = '#ff8a32' }) {
     const currentMount = mountRef.current;
     if (!currentMount) return;
 
+    // Get initial size using getBoundingClientRect for more accurate dimensions
+    const getSize = () => {
+      const rect = currentMount.getBoundingClientRect();
+      return {
+        width: rect.width || currentMount.clientWidth || window.innerWidth,
+        height: rect.height || currentMount.clientHeight || window.innerHeight
+      };
+    };
+
+    const initialSize = getSize();
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
-      currentMount.clientWidth / currentMount.clientHeight,
+      initialSize.width / initialSize.height,
       0.1,
       1000
     );
     camera.position.z = 3;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
+    renderer.setSize(initialSize.width, initialSize.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     currentMount.appendChild(renderer.domElement);
 
@@ -137,11 +148,47 @@ export function GenerativeArtScene({ className = '', color = '#ff8a32' }) {
     };
     animate(0);
 
+    // Throttle resize to prevent excessive updates on mobile scroll
+    let resizeTimeout;
+    let isScrolling = false;
+    let scrollTimeout;
+    
+    const handleScroll = () => {
+      isScrolling = true;
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 150);
+    };
+    
     const handleResize = () => {
       if (!currentMount) return;
-      camera.aspect = currentMount.clientWidth / currentMount.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
+      
+      // Don't resize during scroll on mobile to prevent shifting
+      if (isScrolling && window.innerWidth <= 768) {
+        return;
+      }
+      
+      // Clear existing timeout
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+      
+      // Throttle resize updates
+      resizeTimeout = setTimeout(() => {
+        const size = getSize();
+        // Only update if size actually changed significantly (more than 1px)
+        const currentWidth = renderer.domElement.width / renderer.getPixelRatio();
+        const currentHeight = renderer.domElement.height / renderer.getPixelRatio();
+        
+        if (Math.abs(currentWidth - size.width) > 1 || Math.abs(currentHeight - size.height) > 1) {
+          camera.aspect = size.width / size.height;
+          camera.updateProjectionMatrix();
+          renderer.setSize(size.width, size.height);
+        }
+      }, 150);
     };
 
     const handleMouseMove = (e) => {
@@ -160,6 +207,7 @@ export function GenerativeArtScene({ className = '', color = '#ff8a32' }) {
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Store references
     materialRef.current = material;
@@ -176,8 +224,15 @@ export function GenerativeArtScene({ className = '', color = '#ff8a32' }) {
     // Cleanup function
     return () => {
       cancelAnimationFrame(frameId);
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
       
       if (sceneRef.current) {
         // Clean up Three.js objects
@@ -221,6 +276,7 @@ export function GenerativeArtScene({ className = '', color = '#ff8a32' }) {
         pointerEvents: 'none',
         zIndex: 1,
         overflow: 'hidden',
+        willChange: 'auto',
       }}
     />
   );

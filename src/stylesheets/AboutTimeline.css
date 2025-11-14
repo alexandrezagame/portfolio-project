@@ -78,6 +78,9 @@
   mix-blend-mode: screen;
   opacity: 0.85;
   z-index: 1;
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .who-caption {
