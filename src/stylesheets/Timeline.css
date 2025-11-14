@@ -124,6 +124,8 @@
     cursor: pointer;
     text-align: left;
     transition: background-color 0.2s ease;
+    position: relative;
+    padding-left: calc(100px + 1rem + 1rem);
   }
 
   .experience-card-mobile-header:hover {
@@ -142,6 +144,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: absolute;
+    left: 1rem;
   }
 
   .experience-card-mobile-logo.has-multiple-logos {
