@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import '../stylesheets/AboutTimeline.css';
 import VerticalNav from './VerticalNav';
 import { useParallax } from '../hooks/useParallax';
+import { DottedSurface } from './three/DottedSurface';
 
 const STEPS = [
   { id: 'business', year: '2014', category: 'Business', gradient: ['#5f5a63', '#c9b7c4'], caption: "Started by learning how to sell, build trust, and get close to users — the foundation for everything that came next." },
@@ -24,17 +25,7 @@ export default function AboutTimeline() {
       <VerticalNav />
       <div className="who-wrapper" style={{ '--who-start': activeStep.gradient[0], '--who-end': activeStep.gradient[1] }}>
         <div className="who-stage" ref={animationParallax.ref} style={{ transform: animationParallax.transform }}>
-          <iframe
-            src="https://lottie.host/embed/ef4227e4-b788-4a05-b9dc-c8ea7d953cdc/oCAEwSJbvZ.lottie"
-            className="who-animation"
-            title="Falling Meteor Animation"
-            allowtransparency="true"
-            allow="autoplay"
-            style={{
-              border: 'none',
-              background: 'transparent',
-            }}
-          />
+          <DottedSurface className="who-animation" />
         </div>
         <div className="who-word" ref={trackWordParallax.ref} style={{ transform: trackWordParallax.transform }} aria-hidden>
           <span>T</span><span>R</span><span>A</span><span>C</span><span>K</span>
