@@ -53,7 +53,7 @@ const experiences = [
   },
   {
     id: 'exp-2',
-    title: 'FE Engineer → PM',
+    title: 'Engineer & Product Manager',
     company: 'Tink (Acquired by Visa)',
     period: '2021-2025',
     summary: 'Started as a front-end engineer before transitioning into product management at Europe\'s leading open banking platform.',
