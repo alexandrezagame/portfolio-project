@@ -195,7 +195,7 @@
 
 @media (max-width: 768px) {
   .contact-box {
-    min-height: 240px;
+    min-height: auto;
   }
   
   .contact-box-last {

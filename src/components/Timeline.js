@@ -126,17 +126,18 @@ const experiences = [
   }
 ];
 
-const ExperienceImage = ({ logo, id }) => {
-  const [showLogo, setShowLogo] = useState(false);
+const ExperienceImage = ({ logo, id, compact = false }) => {
+  const [showLogo, setShowLogo] = useState(compact); // Skip animation for compact mode
 
   useEffect(() => {
+    if (compact) return; // Skip animation for compact mode
     // Show logo after 3 seconds (animation plays first)
     const timer = setTimeout(() => {
       setShowLogo(true);
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [compact]);
 
   if (!logo) {
     return null;
@@ -163,8 +164,8 @@ const ExperienceImage = ({ logo, id }) => {
   const isMultipleLogos = Array.isArray(logo);
 
   return (
-    <div className="experience-image-container">
-      {!showLogo ? (
+    <div className={`experience-image-container ${compact ? 'experience-image-compact' : ''}`}>
+      {!showLogo && !compact ? (
         <iframe
           src="https://lottie.host/embed/7ff05ae3-e17d-4aef-a3d2-b3659d4cc00e/Wr66WupRvV.lottie"
           className="experience-animation"
@@ -205,11 +206,75 @@ const ExperienceImage = ({ logo, id }) => {
 
 // Experience card component with parallax
 const ExperienceCard = ({ exp, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   // Staggered parallax for cards - alternating directions, increased speeds
   const cardParallax = useParallax(0.35 + (index % 3) * 0.08, index % 2 === 0 ? 'up' : 'down');
   
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+  
   return (
     <div className="experience-card" ref={cardParallax.ref} style={{ transform: cardParallax.transform }}>
+      {/* Mobile Accordion Header */}
+      <button 
+        type="button"
+        className="experience-card-mobile-header"
+        onClick={handleToggle}
+        aria-expanded={isExpanded}
+      >
+        <div className={`experience-card-mobile-logo ${Array.isArray(exp.logo) ? 'has-multiple-logos' : ''}`}>
+          <div className="experience-image-wrapper">
+            <ExperienceImage logo={exp.logo} id={exp.id} compact />
+          </div>
+        </div>
+        <div className="experience-card-mobile-info">
+          <div className="experience-card-tags">
+            {exp.tags.map((tag) => (
+              <span key={tag} className="experience-tag">{tag}</span>
+            ))}
+          </div>
+          <h3 className="experience-card-title">
+            {exp.title}
+          </h3>
+        </div>
+        <div className="experience-card-expand-icon">
+          <svg 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            className={isExpanded ? 'expanded' : ''}
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </button>
+
+      {/* Mobile Accordion Content */}
+      <div 
+        className={`experience-card-mobile-content ${isExpanded ? 'is-expanded' : ''}`}
+      >
+        <p className="experience-card-summary">
+          {exp.summary}
+        </p>
+        <ul className="experience-card-highlights">
+          {exp.highlights.map((highlight, idx) => (
+            <li key={idx}>{highlight}</li>
+          ))}
+        </ul>
+        <div className="experience-card-meta">
+          <span className="experience-company">{exp.company}</span>
+          <span className="experience-separator">•</span>
+          <span className="experience-period">{exp.period}</span>
+        </div>
+      </div>
+
+      {/* Desktop Layout (unchanged) */}
       <div className="experience-card-content">
         <div className="experience-card-main">
           <div className="experience-card-tags">
