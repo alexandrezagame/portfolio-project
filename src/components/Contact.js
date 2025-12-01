@@ -120,30 +120,6 @@ const Contact = () => {
         </div>
         
         <div className="contact-separator"></div>
-        
-        <div className="contact-social-section">
-          <div className="contact-social-background"></div>
-          <div className="contact-social-content">
-            <h3 className="contact-social-heading">Find me online</h3>
-            <p className="contact-subtitle">
-              Get in touch to discuss opportunities, collaborations, or just say hello.
-            </p>
-            <div className="contact-social-links">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-social-link"
-                >
-                  <FontAwesomeIcon icon={link.icon} className="contact-social-icon" />
-                  <span className="contact-social-label">{link.label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
