@@ -9,7 +9,6 @@ const InteractiveLight = ({
   onPositionChange,
 }) => {
   const lampRef = useRef(null);
-  const highlightRef = useRef(null);
   const containerRef = useRef(null);
   const [tiltEnabled, setTiltEnabled] = useState(enableTilt);
   const [lampDirection, setLampDirection] = useState('center');
@@ -96,7 +95,7 @@ const InteractiveLight = ({
   };
 
   const handleMouseMove = (e) => {
-    if (!ready || !lampRef.current || !highlightRef.current) return;
+    if (!ready || !lampRef.current || !containerRef.current) return;
 
     const xPos = e.clientX;
     const yPos = e.clientY;
@@ -123,25 +122,19 @@ const InteractiveLight = ({
 
     // Use requestAnimationFrame to prevent glitches when pausing
     requestAnimationFrame(() => {
-      if (!lampRef.current || !highlightRef.current) return;
+      if (!lampRef.current || !containerRef.current) return;
       
       // Round values to prevent sub-pixel rendering issues
       const lampWidth = lampRef.current.offsetWidth;
       const lampHeight = lampRef.current.offsetHeight;
-      const highlightWidth = highlightRef.current.offsetWidth;
-      const highlightHeight = highlightRef.current.offsetHeight;
       
       const lampX = Math.round(xPos - lampWidth / 2);
       const lampY = Math.round(yPos - lampHeight / 2);
-      const highlightX = Math.round(xPos - highlightWidth / 2 + offset);
-      const highlightY = Math.round(yPos - highlightHeight / 2);
       
       // Use translate3d for hardware acceleration and smoother rendering
       lampRef.current.style.transition = `transform ${transitionDuration}ms ease-out, box-shadow ${transitionDuration}ms ease-out`;
-      highlightRef.current.style.transition = `transform ${transitionDuration}ms ease-out`;
       
       lampRef.current.style.transform = `translate3d(${lampX}px, ${lampY}px, 0)`;
-      highlightRef.current.style.transform = `translate3d(${highlightX}px, ${highlightY}px, 0)`;
 
       // Notify parent of position change
       if (onPositionChange) {
@@ -154,7 +147,7 @@ const InteractiveLight = ({
   };
 
   const runIntroAnimation = () => {
-    if (!lampRef.current || !highlightRef.current) return;
+    if (!lampRef.current || !containerRef.current) return;
 
     const xPos = window.innerWidth / 2;
     const yPos = window.innerHeight / 2;
@@ -164,22 +157,18 @@ const InteractiveLight = ({
     lampRef.current.style.transform = `translate3d(${Math.round(xPos)}px, ${Math.round(yPos)}px, 0)`;
 
     setTimeout(() => {
-      if (lampRef.current && highlightRef.current) {
+      if (lampRef.current && containerRef.current) {
         const lampX = Math.round(xPos * 1.8 - lampRef.current.offsetWidth / 2);
         const lampY = Math.round(yPos * 1.5 - lampRef.current.offsetHeight / 2);
-        const highlightX = Math.round(xPos * 1.8 - highlightRef.current.offsetWidth / 2);
-        const highlightY = Math.round(yPos * 1.5 - highlightRef.current.offsetHeight / 2);
         lampRef.current.style.transform = `translate3d(${lampX}px, ${lampY}px, 0)`;
-        highlightRef.current.style.transform = `translate3d(${highlightX}px, ${highlightY}px, 0)`;
       }
     }, 100);
 
     setTimeout(() => {
-      if (lampRef.current && highlightRef.current) {
+      if (lampRef.current && containerRef.current) {
         const finalX = Math.round(xPos * 0.5 - lampRef.current.offsetWidth / 2);
         const finalY = Math.round(yPos * 0.3 - lampRef.current.offsetHeight / 2);
         lampRef.current.style.transform = `translate3d(${finalX}px, ${finalY}px, 0)`;
-        highlightRef.current.style.transform = `translate3d(${finalX}px, ${finalY}px, 0)`;
         if (onPositionChange) {
           onPositionChange({ x: xPos * 0.5, y: yPos * 0.3 });
         }
@@ -202,12 +191,6 @@ const InteractiveLight = ({
 
   return (
     <div ref={containerRef} className="interactive-light-container">
-      <div className="interactive-light-grid">
-        <div
-          ref={highlightRef}
-          className="interactive-light-highlight"
-        />
-      </div>
       <div
         ref={lampRef}
         className="interactive-light-lamp"

@@ -23,58 +23,40 @@ const OptimizedMineRunner = () => {
   ];
   const containerRef = useRef(null);
   const [shouldRender, setShouldRender] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const timeoutRef = useRef(null);
-  const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef(null);
 
-  // Detect when user stops scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      isScrollingRef.current = true;
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      scrollTimeoutRef.current = setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 200); // Reduced from 500ms to 200ms
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Render when visible (even while scrolling, but pause when scrolled away)
-          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+          // Render immediately when visible - no delays
+          if (entry.isIntersecting) {
             if (timeoutRef.current) {
               clearTimeout(timeoutRef.current);
             }
-            // Render after a short delay to avoid rendering during fast scrolls
-            timeoutRef.current = setTimeout(() => {
-              setShouldRender(true);
-            }, isScrollingRef.current ? 300 : 100);
+            // Render immediately for fastest loading
+            setShouldRender(true);
+            // Trigger fade-in animation after a tiny delay to ensure DOM is ready
+            setTimeout(() => {
+              setIsVisible(true);
+            }, 10);
           } else {
-            // Unmount when scrolled away
+            // Unmount when scrolled away with a small delay to avoid flickering
             if (timeoutRef.current) {
               clearTimeout(timeoutRef.current);
             }
+            setIsVisible(false);
             timeoutRef.current = setTimeout(() => {
               setShouldRender(false);
-            }, 300); // Small delay to avoid flickering
+            }, 300);
           }
         });
       },
       {
-        threshold: [0, 0.1, 0.3, 0.5], // Multiple thresholds for smoother transitions
-        rootMargin: '100px', // Start loading 100px before it comes into view
+        threshold: 0, // Trigger as soon as any part is visible
+        rootMargin: '400px', // Start loading 400px before it comes into view for preloading
       }
     );
 
@@ -101,7 +83,11 @@ const OptimizedMineRunner = () => {
         position: 'relative',
       }}
     >
-      {shouldRender && <MineRunner />}
+      {shouldRender && (
+        <div className={`mine-runner-wrapper ${isVisible ? 'visible' : ''}`}>
+          <MineRunner />
+        </div>
+      )}
       <div className="contact-social-overlay">
         <div className="contact-social-content">
           <h3 className="contact-social-heading">Find me online</h3>

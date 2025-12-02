@@ -88,6 +88,18 @@ h3 {
   isolation: isolate;
 }
 
+.mine-runner-wrapper {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  will-change: opacity;
+}
+
+.mine-runner-wrapper.visible {
+  opacity: 1;
+}
+
 .mine-runner-section canvas {
   width: 100vw !important;
   max-width: 100vw;
@@ -100,6 +112,7 @@ h3 {
   position: relative;
   z-index: 1;
 }
+
 
 .contact-social-overlay {
   position: absolute;
