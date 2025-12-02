@@ -93,7 +93,7 @@ h3 {
   height: 100%;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
-  will-change: opacity;
+  will-change: opacity, transform;
 }
 
 .mine-runner-wrapper.visible {
@@ -167,6 +167,7 @@ h3 {
   width: 100%;
   animation: fadeInUp 0.6s ease-out;
   margin-top: 0;
+  will-change: transform;
 }
 
 @keyframes fadeInUp {

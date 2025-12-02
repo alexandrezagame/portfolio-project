@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { MineRunner } from 'mine-runner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubAlt, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { useParallax } from '../hooks/useParallax';
 
 const OptimizedMineRunner = () => {
   const socialLinks = [
@@ -25,6 +26,10 @@ const OptimizedMineRunner = () => {
   const [shouldRender, setShouldRender] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const timeoutRef = useRef(null);
+
+  // Parallax effects - overlay moves faster (up) than background (down) for depth
+  const backgroundParallax = useParallax(0.15, 'down'); // Slower, moves down
+  const overlayParallax = useParallax(0.3, 'up'); // Faster, moves up (opposite direction)
 
 
   useEffect(() => {
@@ -84,12 +89,20 @@ const OptimizedMineRunner = () => {
       }}
     >
       {shouldRender && (
-        <div className={`mine-runner-wrapper ${isVisible ? 'visible' : ''}`}>
+        <div 
+          className={`mine-runner-wrapper ${isVisible ? 'visible' : ''}`}
+          ref={backgroundParallax.ref}
+          style={{ transform: backgroundParallax.transform }}
+        >
           <MineRunner />
         </div>
       )}
       <div className="contact-social-overlay">
-        <div className="contact-social-content">
+        <div 
+          className="contact-social-content"
+          ref={overlayParallax.ref}
+          style={{ transform: overlayParallax.transform }}
+        >
           <h3 className="contact-social-heading">Find me online</h3>
           <p className="contact-subtitle">
             Get in touch to discuss opportunities, collaborations, or just say hello.
