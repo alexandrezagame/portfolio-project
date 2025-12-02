@@ -113,6 +113,16 @@ h3 {
   z-index: 1;
 }
 
+@media (max-width: 768px) {
+  .mine-runner-section {
+    min-height: 500px !important;
+  }
+  
+  .mine-runner-wrapper {
+    z-index: 1;
+  }
+}
+
 
 .contact-social-overlay {
   position: absolute;
@@ -300,6 +310,15 @@ h3 {
   .contact-social-overlay .contact-social-content {
     padding: 2rem 2.5rem;
     border-radius: 16px;
+    /* More transparent background on mobile to show MineRunner */
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    /* Reduce backdrop blur on mobile for better visibility */
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
   }
   
   .contact-social-overlay .contact-social-heading {
@@ -314,6 +333,16 @@ h3 {
   .contact-social-overlay .contact-social-link {
     padding: 0.875rem 1.5rem;
     font-size: 0.875rem;
+  }
+  
+  /* Make the overlay gradient lighter on mobile */
+  .contact-social-overlay::before {
+    background: radial-gradient(
+      ellipse 600px 300px at center top,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.2) 40%,
+      transparent 100%
+    );
   }
 }
 
