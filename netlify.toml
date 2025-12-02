@@ -11,6 +11,17 @@
    to = "/index.html"
    status = 200
 
+  ## Headers for SEO
+  [[headers]]
+    for = "/sitemap.xml"
+    [headers.values]
+      Content-Type = "application/xml"
+
+  [[headers]]
+    for = "/robots.txt"
+    [headers.values]
+      Content-Type = "text/plain"
+
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#project-detection
   #[dev]
