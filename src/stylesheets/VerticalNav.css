@@ -14,6 +14,19 @@
   padding: 0;
   z-index: 1000;
   height: 100vh;
+  overflow: visible;
+}
+
+.vertical-nav-wave-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vertical-nav-wave-bg .waves-component {
+  width: 100%;
+  height: 100%;
 }
 
 .vertical-nav-link {
@@ -39,6 +52,7 @@
   min-width: 44px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  z-index: 2;
 }
 
 .vertical-nav-link:link,

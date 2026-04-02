@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import '../stylesheets/VerticalNav.css';
+import { Waves } from './Waves';
 
 const VerticalNav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -253,6 +254,14 @@ const VerticalNav = () => {
 
       {/* Desktop vertical nav - hidden on mobile */}
       <nav className="vertical-nav" ref={navRef}>
+        <div className="vertical-nav-wave-bg" aria-hidden="true">
+          <Waves
+            strokeColor="rgba(255,255,255,0.28)"
+            backgroundColor="#e83124"
+            pointerSize={0.25}
+          />
+        </div>
+
         {/* Dino indicator */}
         {!isMobile && (
           <div 
