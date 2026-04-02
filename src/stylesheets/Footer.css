@@ -11,7 +11,7 @@
 .footer-wave-content {
   max-width: 100%;
   margin: 0;
-  padding: 2rem 0 1.25rem;
+  padding: 0.9rem 0 0.6rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -38,7 +38,7 @@
 }
 
 .footer-wave-copy {
-  margin-top: 0.75rem;
+  margin-top: 0.4rem;
   font-size: 0.85rem;
   color: #9aa0aa;
 }
@@ -48,7 +48,7 @@
 }
 
 .footer-wave-top {
-  margin-top: 0.75rem;
+  margin-top: 0.4rem;
   background: transparent;
   border: 0;
   color: #ffffff;
@@ -63,7 +63,7 @@
 
 .footer-wave-bars {
   overflow: hidden;
-  height: 160px;
+  height: 110px;
 }
 
 .wave-segment {
