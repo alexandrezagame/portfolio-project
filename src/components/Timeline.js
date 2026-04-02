@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/Timeline.css';
-import VerticalNav from './VerticalNav';
 import { useParallax } from '../hooks/useParallax';
 
 const experiences = [
   {
+    id: 'exp-rebtel-current',
+    title: 'Product Manager',
+    company: 'Project R / Rebtel',
+    period: 'Since December (Project R) - Since February (Rebtel)',
+    summary: 'Started at Project R (a Rebtel company), building and validating new startup concepts from zero to early proof, then moved to Rebtel as Product Manager.',
+    highlights: [
+      'At Project R (since December): venture ideation, problem discovery, and MVP validation from zero to early proof',
+      'Defining early product strategy and running go-to-market hypothesis testing for new concepts',
+      'At Rebtel (since February): owning product strategy and execution for a core growth product',
+      'Prioritizing and shipping improvements with cross-functional teams to drive activation, conversion, and retention'
+    ],
+    tags: ['Venture Building', 'MVP Validation', 'Product Strategy', 'Product Management'],
+    logo: '/Logo full.svg'
+  },
+  {
     id: 'exp-00',
     title: 'Founder & Technical Product Lead',
     company: 'NowWhat Technologies AB',
-    period: '2025 – Present',
+    period: 'June 2025 – December 2025 (Startup closed)',
     summary: 'Founder of NowWhat, a go-to-market platform helping early-stage founders turn their MVPs into real businesses. The platform simplifies growth strategy, pricing, and analytics — using AI to guide founders from zero users to revenue.',
     highlights: [
       'Identified a critical gap for builders lacking go-to-market structure and data-driven direction',
@@ -150,7 +164,9 @@ const ExperienceImage = ({ logo, id, compact = false }) => {
     '/valkiv.png',
     '/teamtailor.png',
     '/eggevents.png',
-    '/legitify.webp'
+    '/legitify.webp',
+    '/rebtel.png',
+    '/Logo full.svg'
   ];
 
   const shouldHaveHover = (logoPath) => {
@@ -197,7 +213,7 @@ const ExperienceImage = ({ logo, id, compact = false }) => {
         <img
           src={logo}
           alt="Company Logo"
-          className={`experience-logo experience-logo-white ${shouldHaveHover(logo) ? 'experience-logo-hover' : ''} ${logo === '/eggevents.png' ? 'experience-logo-small' : ''} ${logo === '/teamtailor.png' ? 'experience-logo-medium' : ''}`}
+          className={`experience-logo experience-logo-white ${shouldHaveHover(logo) ? 'experience-logo-hover' : ''} ${logo === '/eggevents.png' ? 'experience-logo-small' : ''} ${logo === '/teamtailor.png' ? 'experience-logo-medium' : ''} ${logo === '/rebtel.png' || logo === '/Logo full.svg' ? 'experience-logo-rebtel' : ''}`}
         />
       )}
     </div>
@@ -315,7 +331,6 @@ const Timeline = () => {
 
   return (
     <div id="timeline" className="experience">
-      <VerticalNav />
       <div className="experience-container">
         <div className="experience-header" ref={headerParallax.ref} style={{ transform: headerParallax.transform }}>
           <h2 className="experience-heading">Experience</h2>

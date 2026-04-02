@@ -1,17 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faGithubAlt, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons';
 import '../stylesheets/Contact.css';
-import VerticalNav from './VerticalNav';
 import { AboutAccordion } from './AboutAccordion';
 
 const APP_EMAIL = 'zagamealexandre@gmail.com';
 const APP_PHONE = '+46 767610630';
 const APP_ADDRESS = 'Stockholm, Sweden';
 
-const handleCopy = async (text, e) => {
-  e.preventDefault();
+const handleCopy = async (text) => {
   try {
     await navigator.clipboard.writeText(text);
   } catch (err) {
@@ -34,27 +31,8 @@ const ContactBox = ({ icon, title, children, className = '' }) => {
 };
 
 const Contact = () => {
-  const socialLinks = [
-    {
-      icon: faGithubAlt,
-      href: 'https://github.com/zagamealexandre',
-      label: 'GitHub',
-    },
-    {
-      icon: faLinkedin,
-      href: 'https://www.linkedin.com/in/alexandrezagame/',
-      label: 'LinkedIn',
-    },
-    {
-      icon: faMedium,
-      href: 'https://medium.com/@alexbacelo/from-sales-to-web-development-a-journey-of-learning-4ee2c826df46?source=friends_link&sk=e7aa09d4694d10caf6a3e90a79ccf4cd',
-      label: 'Medium',
-    },
-  ];
-
   return (
     <div id="contact" className="contact">
-      <VerticalNav />
       <div className="contact-container">
         <div className="contact-header">
           <h2 className="contact-heading">Contact Me</h2>
@@ -71,7 +49,7 @@ const Contact = () => {
               <a
                 href={`mailto:${APP_EMAIL}`}
                 className="contact-info-link"
-                onClick={(e) => handleCopy(APP_EMAIL, e)}
+                onClick={() => handleCopy(APP_EMAIL)}
               >
                 {APP_EMAIL}
               </a>
@@ -96,7 +74,7 @@ const Contact = () => {
               <a
                 href={`tel:${APP_PHONE.replace(/\s/g, '')}`}
                 className="contact-info-link"
-                onClick={(e) => handleCopy(APP_PHONE, e)}
+                onClick={() => handleCopy(APP_PHONE)}
               >
                 {APP_PHONE}
               </a>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-scroll';
 import InteractiveLight from './InteractiveLight';
-import VerticalNav from './VerticalNav';
 import FloatingWords from './FloatingWords';
 import { LiquidEffectAnimation } from './LiquidEffectAnimation';
 import '../stylesheets/Header.css';
@@ -102,8 +100,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Left rail nav */}
-      <VerticalNav />
     </section>
   );
 };

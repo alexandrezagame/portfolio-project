@@ -2,14 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import '../stylesheets/VerticalNav.css';
 
-// Map sections to nav items
-const sectionToNavMap = {
-  'home': 0,
-  'about': 1,
-  'timeline': 2,
-  'contact': 3
-};
-
 const VerticalNav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -223,7 +215,7 @@ const VerticalNav = () => {
             <Link 
               smooth={true} 
               to="home" 
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'home' ? 'active' : ''}`}
               onClick={handleLinkClick}
             >
               HOME
@@ -232,7 +224,7 @@ const VerticalNav = () => {
               smooth={true} 
               to="about" 
               offset={-50} 
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'about' ? 'active' : ''}`}
               onClick={handleLinkClick}
             >
               ABOUT
@@ -241,7 +233,7 @@ const VerticalNav = () => {
               smooth={true} 
               to="timeline" 
               offset={-60} 
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'timeline' ? 'active' : ''}`}
               onClick={handleLinkClick}
             >
               WORK
@@ -250,7 +242,7 @@ const VerticalNav = () => {
               smooth={true} 
               to="contact" 
               offset={-40} 
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'contact' ? 'active' : ''}`}
               onClick={handleLinkClick}
             >
               CONTACT
@@ -274,16 +266,16 @@ const VerticalNav = () => {
             />
           </div>
         )}
-        <Link smooth={true} to="home" className="vertical-nav-link">
+        <Link smooth={true} to="home" className={`vertical-nav-link ${activeSection === 'home' ? 'active' : ''}`}>
           HOME
         </Link>
-        <Link smooth={true} to="about" offset={-50} className="vertical-nav-link">
+        <Link smooth={true} to="about" offset={-50} className={`vertical-nav-link ${activeSection === 'about' ? 'active' : ''}`}>
           ABOUT
         </Link>
-        <Link smooth={true} to="timeline" offset={-60} className="vertical-nav-link">
+        <Link smooth={true} to="timeline" offset={-60} className={`vertical-nav-link ${activeSection === 'timeline' ? 'active' : ''}`}>
           WORK
         </Link>
-        <Link smooth={true} to="contact" offset={-40} className="vertical-nav-link">
+        <Link smooth={true} to="contact" offset={-40} className={`vertical-nav-link ${activeSection === 'contact' ? 'active' : ''}`}>
           CONTACT
         </Link>
       </nav>

@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import '../stylesheets/AboutTimeline.css';
-import VerticalNav from './VerticalNav';
 import { useParallax } from '../hooks/useParallax';
 import { GenerativeArtScene } from './three/GenerativeArtScene';
 
@@ -33,7 +32,6 @@ export default function AboutTimeline() {
 
   return (
     <section id="about" className="about-who-section">
-      <VerticalNav />
       <div className="who-wrapper" style={{ '--who-start': activeStep.gradient[0], '--who-end': activeStep.gradient[1] }}>
         <div className="who-stage" ref={animationParallax.ref} style={{ transform: animationParallax.transform }}>
           <GenerativeArtScene className="who-animation" color={activeStep.gradient[1]} />

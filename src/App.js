@@ -5,19 +5,16 @@ import AboutMe from "./components/AboutMe";
 import Timeline from "./components/Timeline";
 // import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
-import OptimizedMineRunner from "./components/OptimizedMineRunner";
-
-// Set to false to completely disable MineRunner for better performance
-const ENABLE_MINERUNNER = true;
+import VerticalNav from "./components/VerticalNav";
 
 function App() {
   return (
     <>
+      <VerticalNav />
       <Header />
       <AboutMe />
       <Timeline />
       <Contact />
-      {ENABLE_MINERUNNER && <OptimizedMineRunner />}
     </>
   );
 }

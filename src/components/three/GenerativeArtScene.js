@@ -41,7 +41,7 @@ export function GenerativeArtScene({ className = '', color = '#ff8a32' }) {
       uniforms: {
         time: { value: 0 },
         pointLightPos: { value: new THREE.Vector3(0, 0, 5) },
-        color: { value: new THREE.Color(color) },
+        color: { value: new THREE.Color('#ff8a32') },
       },
       vertexShader: `
         uniform float time;

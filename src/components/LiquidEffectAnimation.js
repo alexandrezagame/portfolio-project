@@ -3,7 +3,6 @@ import '../stylesheets/LiquidEffect.css';
 
 export function LiquidEffectAnimation() {
   const canvasRef = useRef(null);
-  const appRef = useRef(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;

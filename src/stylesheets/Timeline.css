@@ -483,6 +483,15 @@
   max-width: 280px;
 }
 
+.experience-logo-rebtel {
+  width: 58%;
+  max-width: 240px;
+}
+
+.experience-logo-rebtel.experience-logo-hover:hover {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(97%) saturate(3280%) hue-rotate(330deg) brightness(92%) contrast(96%);
+}
+
 .experience-logos-stacked {
   display: flex;
   flex-direction: column;

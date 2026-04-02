@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 const InteractiveLight = ({
   shineColor = '#e83124',
@@ -10,11 +10,22 @@ const InteractiveLight = ({
 }) => {
   const lampRef = useRef(null);
   const containerRef = useRef(null);
-  const [tiltEnabled, setTiltEnabled] = useState(enableTilt);
+  const [tiltEnabled] = useState(enableTilt);
   const [lampDirection, setLampDirection] = useState('center');
   const [ready, setReady] = useState(false);
+  const readyRef = useRef(false);
+  const onPositionChangeRef = useRef(onPositionChange);
+  const introTimersRef = useRef([]);
   const lastXRef = useRef(0);
   const lastYRef = useRef(0);
+
+  useEffect(() => {
+    onPositionChangeRef.current = onPositionChange;
+  }, [onPositionChange]);
+
+  useEffect(() => {
+    readyRef.current = ready;
+  }, [ready]);
 
   // Generate lighter shades of shine color
   const lightenColor = (color, percent) => {
@@ -94,27 +105,22 @@ const InteractiveLight = ({
     }
   };
 
-  const handleMouseMove = (e) => {
-    if (!ready || !lampRef.current || !containerRef.current) return;
+  const handleMouseMove = useCallback((e) => {
+    if (!readyRef.current || !lampRef.current || !containerRef.current) return;
 
     const xPos = e.clientX;
     const yPos = e.clientY;
     const lastX = lastXRef.current;
-    let offset = 0;
-
+    const lastY = lastYRef.current;
     if (tiltEnabled) {
       if (lastX < xPos - 1) {
         setLampDirection('right');
-        offset = 200;
       } else if (lastX > xPos + 1) {
         setLampDirection('left');
-        offset = -200;
-      } else if (lastX > yPos + 1) {
+      } else if (lastY > yPos + 1) {
         setLampDirection('top');
-        offset = 200;
-      } else if (lastX > yPos + 1) {
+      } else if (lastY < yPos - 1) {
         setLampDirection('bottom');
-        offset = -200;
       } else {
         setLampDirection('center');
       }
@@ -137,16 +143,16 @@ const InteractiveLight = ({
       lampRef.current.style.transform = `translate3d(${lampX}px, ${lampY}px, 0)`;
 
       // Notify parent of position change
-      if (onPositionChange) {
-        onPositionChange({ x: xPos, y: yPos });
+      if (onPositionChangeRef.current) {
+        onPositionChangeRef.current({ x: xPos, y: yPos });
       }
     });
 
     lastXRef.current = xPos;
     lastYRef.current = yPos;
-  };
+  }, [tiltEnabled, transitionDuration]);
 
-  const runIntroAnimation = () => {
+  const runIntroAnimation = useCallback(() => {
     if (!lampRef.current || !containerRef.current) return;
 
     const xPos = window.innerWidth / 2;
@@ -154,31 +160,34 @@ const InteractiveLight = ({
     lastXRef.current = xPos;
     lastYRef.current = yPos;
 
-    lampRef.current.style.transform = `translate3d(${Math.round(xPos)}px, ${Math.round(yPos)}px, 0)`;
+    const initialX = Math.round(xPos - lampRef.current.offsetWidth / 2);
+    const initialY = Math.round(yPos - lampRef.current.offsetHeight / 2);
+    lampRef.current.style.transform = `translate3d(${initialX}px, ${initialY}px, 0)`;
 
-    setTimeout(() => {
+    introTimersRef.current.push(setTimeout(() => {
       if (lampRef.current && containerRef.current) {
         const lampX = Math.round(xPos * 1.8 - lampRef.current.offsetWidth / 2);
         const lampY = Math.round(yPos * 1.5 - lampRef.current.offsetHeight / 2);
         lampRef.current.style.transform = `translate3d(${lampX}px, ${lampY}px, 0)`;
       }
-    }, 100);
+    }, 100));
 
-    setTimeout(() => {
+    introTimersRef.current.push(setTimeout(() => {
       if (lampRef.current && containerRef.current) {
         const finalX = Math.round(xPos * 0.5 - lampRef.current.offsetWidth / 2);
         const finalY = Math.round(yPos * 0.3 - lampRef.current.offsetHeight / 2);
         lampRef.current.style.transform = `translate3d(${finalX}px, ${finalY}px, 0)`;
-        if (onPositionChange) {
-          onPositionChange({ x: xPos * 0.5, y: yPos * 0.3 });
+        if (onPositionChangeRef.current) {
+          onPositionChangeRef.current({ x: xPos * 0.5, y: yPos * 0.3 });
         }
       }
-    }, 1000);
+    }, 1000));
 
-    setTimeout(() => {
+    introTimersRef.current.push(setTimeout(() => {
+      readyRef.current = true;
       setReady(true);
-    }, 2000);
-  };
+    }, 2000));
+  }, []);
 
   useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove);
@@ -186,8 +195,10 @@ const InteractiveLight = ({
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+      introTimersRef.current.forEach((timerId) => clearTimeout(timerId));
+      introTimersRef.current = [];
     };
-  }, [ready, tiltEnabled]);
+  }, [handleMouseMove, runIntroAnimation]);
 
   return (
     <div ref={containerRef} className="interactive-light-container">
