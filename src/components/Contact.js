@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import '../stylesheets/Contact.css';
 import { AboutAccordion } from './AboutAccordion';
+import Footer from './Footer';
 
 const APP_EMAIL = 'zagamealexandre@gmail.com';
 const APP_PHONE = '+46 767610630';
@@ -98,6 +99,8 @@ const Contact = () => {
         </div>
         
         <div className="contact-separator"></div>
+        <div id="contact-wave-anchor" />
+        <Footer />
       </div>
     </div>
   );

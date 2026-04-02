@@ -240,8 +240,8 @@ const VerticalNav = () => {
             </Link>
             <Link 
               smooth={true} 
-              to="contact" 
-              offset={-40} 
+              to="contact-wave-anchor" 
+              offset={-20} 
               className={`mobile-nav-link ${activeSection === 'contact' ? 'active' : ''}`}
               onClick={handleLinkClick}
             >
@@ -275,7 +275,7 @@ const VerticalNav = () => {
         <Link smooth={true} to="timeline" offset={-60} className={`vertical-nav-link ${activeSection === 'timeline' ? 'active' : ''}`}>
           WORK
         </Link>
-        <Link smooth={true} to="contact" offset={-40} className={`vertical-nav-link ${activeSection === 'contact' ? 'active' : ''}`}>
+        <Link smooth={true} to="contact-wave-anchor" offset={-20} className={`vertical-nav-link ${activeSection === 'contact' ? 'active' : ''}`}>
           CONTACT
         </Link>
       </nav>
